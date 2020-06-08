@@ -22,6 +22,12 @@ function configureGit() {
   echo "👌 git configured";
 }
 
+function configureVim() {
+  cp ./.vimrc ~/.vimrc;
+
+  echo "👌 vim configured";
+
+}
 function doIt() {
   if [ "$1" != "-u" ]; then
       installDependencies;
@@ -29,9 +35,10 @@ function doIt() {
   
   configureZsh;
   configureGit;
+  configureVim;
   echo "✅ Done";
 }
 
 set -e;
 doIt $1;
-unset installDependencies doIt configureZsh configureGit;
+unset installDependencies doIt configureZsh configureGit configureVim;
