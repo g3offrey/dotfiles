@@ -1,10 +1,14 @@
 [core]
 	editor = "code --wait"
-    	excludesfile = ~/.gitignore_global
+	excludesfile = ~/.gitignore_global
 
 [user]
 	email = 11151445+g3offrey@users.noreply.github.com
 	name = Geoffrey
+	signingkey = 9E9B063C096111B217D3594FE69C7FE51F09B968
+
+[commit]
+	gpgsign = true
 
 [color]
 	ui = true

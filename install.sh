@@ -28,6 +28,7 @@ function configureVim() {
   echo "👌 vim configured";
 
 }
+
 function doIt() {
   if [ "$1" != "-u" ]; then
       installDependencies;
@@ -39,6 +40,7 @@ function doIt() {
   echo "✅ Done";
 }
 
-set -e;
+trap "echo \"❌ an error occured\" && exit" ERR
+
 doIt $1;
 unset installDependencies doIt configureZsh configureGit configureVim;
