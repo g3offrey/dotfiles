@@ -1,6 +1,8 @@
 #!/usr/bin/env zsh
 
 function installDependencies() {
+  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
   git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions;
   git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting;
 
@@ -9,8 +11,6 @@ function installDependencies() {
 
 function configureZsh() {
   cp ./.zshrc ~/.zshrc;
-
-  source ~/.zshrc;
 
   echo "👌 zsh configured";
 }
@@ -40,7 +40,8 @@ function doIt() {
   echo "✅ Done";
 }
 
-trap "echo \"❌ an error occured\" && exit" ERR
+trap 'echo "❌ an error occured" && exit' ERR
 
 doIt $1;
+
 unset installDependencies doIt configureZsh configureGit configureVim;
