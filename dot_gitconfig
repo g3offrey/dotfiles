@@ -1,0 +1,74 @@
+[core]
+	excludesfile = ~/.gitignore_global
+	editor = nvim
+
+[user]
+	email = 11151445+g3offrey@users.noreply.github.com
+	name = g3offrey
+	signingKey = 
+
+[merge]
+	tool = nvimdiff
+
+[mergetool]
+	prompt = false
+
+[mergetool "nvimdiff"]
+	cmd = nvim  -d $MERGED $LOCAL $BASE $REMOTE -c 'wincmd J | wincmd ='
+
+[diff]
+	tool = nvimdiff
+
+[difftool]
+	prompt = false
+
+[difftool "nvimdiff"]
+	cmd = nvim -d $LOCAL $REMOTE
+
+[color]
+	ui = true
+
+[push]
+	default = upstream
+	autoSetupRemote = true
+
+[pull]
+	rebase = true
+
+[commit]
+	gpgSign = true
+
+[tag]
+	gpgSign = true
+
+[rerere]
+	enabled = true
+
+[log]
+	decorate = short
+
+[alias]
+	br = branch
+	ci = commit --verbose
+	ms = commit -m
+	aa = add --all
+	co = checkout
+	sw = switch
+	r = restore
+	df = diff
+	rb = rebase
+	pl = pull
+	psf = push --force-with-lease
+	ps = push
+	sh = stash
+	rl = reflog
+	rs = reset
+	st = status
+	fix = commit --amend --no-edit
+	new = checkout -b
+	l = log --oneline --decorate -10 --pretty=format:'%C(yellow)%h%C(reset)%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+	tree = log --graph --oneline --all
+	fc = "!f() { \
+		branch_name=$(git branch --format='%(refname:short)' | grep $1); \
+		git switch $branch_name; \
+    }; f"
