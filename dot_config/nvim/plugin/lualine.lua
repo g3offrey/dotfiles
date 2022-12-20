@@ -27,19 +27,19 @@ lualine.setup {
         lualine_y = {},
         lualine_z = {}
     },
-    -- tabline = {
-    --     lualine_a = {
-    --         {
-    --             "buffers",
-    --             max_length = vim.o.columns - 10,
-    --             symbols = {alternate_file = ""}
-    --         }
-    --     },
-    --     lualine_b = {},
-    --     lualine_c = {},
-    --     lualine_x = {},
-    --     lualine_y = {},
-    --     lualine_z = {"tabs"}
-    -- },
+    tabline = {
+        lualine_a = {
+            {
+                "buffers",
+                max_length = vim.o.columns,
+                symbols = {alternate_file = ""}
+            }
+        },
+        lualine_b = {},
+        lualine_c = {},
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {}
+    },
     extensions = {}
 }
