@@ -17,8 +17,8 @@ return require("packer").startup(
             requires = {"kkharji/sqlite.lua"},
             after = "telescope.nvim"
         }
-        use {"nvim-telescope/telescope-file-browser.nvim", after = "telescope.nvim"}
-        use {"nvim-telescope/telescope-ui-select.nvim", after = "telescope.nvim"}
+        use {"nvim-telescope/telescope-file-browser.nvim"}
+        use {"nvim-telescope/telescope-ui-select.nvim"}
 
         -- Status bar
         use {
@@ -75,6 +75,7 @@ return require("packer").startup(
         use "tpope/vim-surround"
         use "numToStr/Comment.nvim"
         use "ggandor/leap.nvim"
+        use "theprimeagen/harpoon"
 
         -- Colorschemes
         use "folke/tokyonight.nvim"

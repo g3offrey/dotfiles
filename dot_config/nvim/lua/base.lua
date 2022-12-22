@@ -34,13 +34,13 @@ vim.opt.foldmethod = "indent"
 vim.opt.grepprg = "rg --vimgrep --no-heading --smart-case"
 vim.opt.grepformat = "%f:%l:%c:%m"
 
-local kanagawa = require("kanagawa")
-kanagawa.setup {
-    transparent = true
-}
+-- local kanagawa = require("kanagawa")
+-- kanagawa.setup {
+--     transparent = true
+-- }
 
 vim.cmd [[colorscheme kanagawa]]
 
 -- set transparent background
-vim.api.nvim_set_hl(0, "Normal", {bg = "NONE"})
-vim.api.nvim_set_hl(0, "NormalFloat", {bg = "NONE"})
+-- vim.api.nvim_set_hl(0, "Normal", {bg = "NONE"})
+-- vim.api.nvim_set_hl(0, "NormalFloat", {bg = "NONE"})

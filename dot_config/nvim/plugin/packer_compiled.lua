@@ -161,6 +161,11 @@ local no_errors, error_msg =
                 path = "/Users/geoffrey/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
                 url = "https://github.com/ellisonleao/gruvbox.nvim"
             },
+            harpoon = {
+                loaded = true,
+                path = "/Users/geoffrey/.local/share/nvim/site/pack/packer/start/harpoon",
+                url = "https://github.com/theprimeagen/harpoon"
+            },
             ["kanagawa.nvim"] = {
                 loaded = true,
                 path = "/Users/geoffrey/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
@@ -279,10 +284,8 @@ local no_errors, error_msg =
                 url = "https://github.com/kkharji/sqlite.lua"
             },
             ["telescope-file-browser.nvim"] = {
-                load_after = {},
                 loaded = true,
-                needs_bufread = false,
-                path = "/Users/geoffrey/.local/share/nvim/site/pack/packer/opt/telescope-file-browser.nvim",
+                path = "/Users/geoffrey/.local/share/nvim/site/pack/packer/start/telescope-file-browser.nvim",
                 url = "https://github.com/nvim-telescope/telescope-file-browser.nvim"
             },
             ["telescope-frecency.nvim"] = {
@@ -293,10 +296,8 @@ local no_errors, error_msg =
                 url = "https://github.com/nvim-telescope/telescope-frecency.nvim"
             },
             ["telescope-ui-select.nvim"] = {
-                load_after = {},
                 loaded = true,
-                needs_bufread = false,
-                path = "/Users/geoffrey/.local/share/nvim/site/pack/packer/opt/telescope-ui-select.nvim",
+                path = "/Users/geoffrey/.local/share/nvim/site/pack/packer/start/telescope-ui-select.nvim",
                 url = "https://github.com/nvim-telescope/telescope-ui-select.nvim"
             },
             ["telescope.nvim"] = {
@@ -334,12 +335,10 @@ local no_errors, error_msg =
         time([[Defining packer_plugins]], false)
         -- Load plugins in order defined by `after`
         time([[Sequenced loading]], true)
+        vim.cmd [[ packadd telescope.nvim ]]
+        vim.cmd [[ packadd telescope-frecency.nvim ]]
         vim.cmd [[ packadd nvim-treesitter ]]
         vim.cmd [[ packadd nvim-treesitter-textobjects ]]
-        vim.cmd [[ packadd telescope.nvim ]]
-        vim.cmd [[ packadd telescope-ui-select.nvim ]]
-        vim.cmd [[ packadd telescope-file-browser.nvim ]]
-        vim.cmd [[ packadd telescope-frecency.nvim ]]
         time([[Sequenced loading]], false)
 
         _G._packer.inside_compile = false

@@ -4,6 +4,7 @@ local telescope_builtin = require("telescope.builtin")
 telescope.load_extension("frecency")
 telescope.load_extension("file_browser")
 telescope.load_extension("ui-select")
+telescope.load_extension("harpoon")
 
 vim.keymap.set(
     "n",
