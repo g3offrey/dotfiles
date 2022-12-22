@@ -136,11 +136,6 @@ local no_errors, error_msg =
                 path = "/Users/geoffrey/.local/share/nvim/site/pack/packer/start/diffview.nvim",
                 url = "https://github.com/sindrets/diffview.nvim"
             },
-            everforest = {
-                loaded = true,
-                path = "/Users/geoffrey/.local/share/nvim/site/pack/packer/start/everforest",
-                url = "https://github.com/sainnhe/everforest"
-            },
             ["fidget.nvim"] = {
                 loaded = true,
                 path = "/Users/geoffrey/.local/share/nvim/site/pack/packer/start/fidget.nvim",
@@ -155,11 +150,6 @@ local no_errors, error_msg =
                 loaded = true,
                 path = "/Users/geoffrey/.local/share/nvim/site/pack/packer/start/gruvbox-material",
                 url = "https://github.com/sainnhe/gruvbox-material"
-            },
-            ["gruvbox.nvim"] = {
-                loaded = true,
-                path = "/Users/geoffrey/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
-                url = "https://github.com/ellisonleao/gruvbox.nvim"
             },
             harpoon = {
                 loaded = true,
@@ -206,11 +196,6 @@ local no_errors, error_msg =
                 path = "/Users/geoffrey/.local/share/nvim/site/pack/packer/start/neovim",
                 url = "https://github.com/rose-pine/neovim"
             },
-            ["neovim-ayu"] = {
-                loaded = true,
-                path = "/Users/geoffrey/.local/share/nvim/site/pack/packer/start/neovim-ayu",
-                url = "https://github.com/Shatur/neovim-ayu"
-            },
             ["nightfox.nvim"] = {
                 loaded = true,
                 path = "/Users/geoffrey/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
@@ -220,11 +205,6 @@ local no_errors, error_msg =
                 loaded = true,
                 path = "/Users/geoffrey/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
                 url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
-            },
-            nvim = {
-                loaded = true,
-                path = "/Users/geoffrey/.local/share/nvim/site/pack/packer/start/nvim",
-                url = "https://github.com/catppuccin/nvim"
             },
             ["nvim-autopairs"] = {
                 loaded = true,

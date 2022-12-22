@@ -80,12 +80,8 @@ return require("packer").startup(
         -- Colorschemes
         use "folke/tokyonight.nvim"
         use "rebelot/kanagawa.nvim"
-        use "catppuccin/nvim"
         use "navarasu/onedark.nvim"
-        use "ellisonleao/gruvbox.nvim"
-        use "Shatur/neovim-ayu"
         use "EdenEast/nightfox.nvim"
-        use "sainnhe/everforest"
         use "sainnhe/gruvbox-material"
         use "rose-pine/neovim"
     end

@@ -22,7 +22,7 @@ vim.opt.incsearch = true
 vim.opt.termguicolors = true
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
-vim.opt.cmdheight = 1
+vim.opt.cmdheight = 0
 vim.opt.smartcase = true
 vim.opt.ignorecase = true
 vim.opt.updatetime = 300
@@ -34,12 +34,12 @@ vim.opt.foldmethod = "indent"
 vim.opt.grepprg = "rg --vimgrep --no-heading --smart-case"
 vim.opt.grepformat = "%f:%l:%c:%m"
 
--- local kanagawa = require("kanagawa")
--- kanagawa.setup {
---     transparent = true
--- }
+local onedark = require("onedark")
+onedark.setup {
+    style = "warmer"
+}
 
-vim.cmd [[colorscheme kanagawa]]
+vim.cmd [[colorscheme onedark]]
 
 -- set transparent background
 -- vim.api.nvim_set_hl(0, "Normal", {bg = "NONE"})
