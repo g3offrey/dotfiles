@@ -21,11 +21,14 @@ vim.opt.hlsearch = false
 vim.opt.incsearch = true
 vim.opt.termguicolors = true
 vim.opt.scrolloff = 8
-vim.opt.signcolumn = "yes"
+vim.opt.signcolumn = "auto"
 vim.opt.cmdheight = 0
 vim.opt.smartcase = true
 vim.opt.ignorecase = true
 vim.opt.updatetime = 300
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+vim.opt.cursorline = true
 
 vim.opt.foldlevel = 20
 vim.opt.foldmethod = "indent"
