@@ -1,6 +1,20 @@
 local telescope = require("telescope")
 local telescope_builtin = require("telescope.builtin")
 
+telescope.setup(
+    {
+        defaults = {
+            mappings = {
+                i = {
+                    ["<C-j>"] = "move_selection_next",
+                    ["<C-k>"] = "move_selection_previous",
+                    ["<C-q>"] = "smart_send_to_qflist"
+                }
+            }
+        }
+    }
+)
+
 telescope.load_extension("frecency")
 telescope.load_extension("file_browser")
 telescope.load_extension("ui-select")
