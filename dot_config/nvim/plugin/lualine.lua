@@ -5,20 +5,18 @@ lualine.setup {
     options = {
         -- theme = lualine_theme.theme(),
         -- component_separators = {left = "╲", right = "╱"},
-        -- section_separators = {left = " ", right = " "},
+        section_separators = {left = " ", right = " "},
         component_separators = "|",
-        section_separators = "",
+        -- section_separators = "",
         disabled_filetypes = {"NvimTree"}
     },
     sections = {
-        lualine_a = {"mode"},
-        lualine_b = {"branch", "diff", "diagnostics"},
-        lualine_c = {{"filename", path = 1}},
-        lualine_x = {"encoding", "fileformat"},
-        lualine_y = {"filetype"},
-        lualine_z = {
-            "location"
-        }
+        lualine_a = {{"filename", path = 1}},
+        lualine_b = {"diagnostics"},
+        lualine_c = {},
+        lualine_x = {"branch", "diff"},
+        lualine_y = {"encoding", "fileformat", "filetype"},
+        lualine_z = {"mode"}
     },
     inactive_sections = {
         lualine_a = {"filename"},
