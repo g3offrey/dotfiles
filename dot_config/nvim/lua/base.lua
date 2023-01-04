@@ -32,13 +32,8 @@ vim.opt.cursorline = true
 
 vim.opt.foldlevel = 20
 vim.opt.foldmethod = "indent"
--- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
 vim.opt.grepprg = "rg --vimgrep --no-heading --smart-case"
 vim.opt.grepformat = "%f:%l:%c:%m"
 
 vim.cmd [[colorscheme kanagawa]]
-
--- set transparent background
--- vim.api.nvim_set_hl(0, "Normal", {bg = "NONE"})
--- vim.api.nvim_set_hl(0, "NormalFloat", {bg = "NONE"})

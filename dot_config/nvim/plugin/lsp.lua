@@ -9,6 +9,7 @@ local servers = {
     "cssls",
     "dockerls",
     "eslint",
+    "emmet_ls",
     "gopls",
     "rust_analyzer",
     "tsserver",
@@ -40,29 +41,27 @@ local function on_attach()
     vim.keymap.set("n", "<leader>dd", vim.diagnostic.open_float)
 end
 
-for _, server in ipairs(servers) do
-    if server == "denols" then
-        lspconfig[server].setup {
-            on_attach = on_attach,
-            capabilities = capabilities,
-            root_dir = lspconfig.util.root_pattern("deno.json")
-        }
-    elseif server == "tsserver" then
-        lspconfig[server].setup {
-            on_attach = on_attach,
-            capabilities = capabilities,
-            root_dir = lspconfig.util.root_pattern("package.json")
-        }
-    else
-        lspconfig[server].setup {
-            on_attach = on_attach,
-            capabilities = capabilities
-        }
-    end
+for _, server in ipairs(mason_lsp.get_installed_servers()) do
+    lspconfig[server].setup {
+        on_attach = on_attach,
+        capabilities = capabilities
+    }
 end
 
--- customize lsp handlers
+-- override server config
+lspconfig.denols.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    root_dir = lspconfig.util.root_pattern("deno.json")
+}
 
+lspconfig.tsserver.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    root_dir = lspconfig.util.root_pattern("package.json")
+}
+
+-- customize lsp handlers
 vim.lsp.handlers["textDocument/hover"] =
     vim.lsp.with(
     vim.lsp.handlers.hover,
