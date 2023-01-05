@@ -96,6 +96,11 @@ local no_errors, error_msg =
                 path = "/Users/geoffrey/.local/share/nvim/site/pack/packer/start/Comment.nvim",
                 url = "https://github.com/numToStr/Comment.nvim"
             },
+            ["bufferline.nvim"] = {
+                loaded = true,
+                path = "/Users/geoffrey/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
+                url = "https://github.com/akinsho/bufferline.nvim"
+            },
             ["close-buffers.vim"] = {
                 loaded = true,
                 path = "/Users/geoffrey/.local/share/nvim/site/pack/packer/start/close-buffers.vim",
@@ -315,10 +320,10 @@ local no_errors, error_msg =
         time([[Defining packer_plugins]], false)
         -- Load plugins in order defined by `after`
         time([[Sequenced loading]], true)
-        vim.cmd [[ packadd telescope.nvim ]]
-        vim.cmd [[ packadd telescope-frecency.nvim ]]
         vim.cmd [[ packadd nvim-treesitter ]]
         vim.cmd [[ packadd nvim-treesitter-textobjects ]]
+        vim.cmd [[ packadd telescope.nvim ]]
+        vim.cmd [[ packadd telescope-frecency.nvim ]]
         time([[Sequenced loading]], false)
 
         _G._packer.inside_compile = false

@@ -21,6 +21,7 @@ return require("packer").startup(
         use {"nvim-telescope/telescope-ui-select.nvim"}
 
         -- Status bar
+        use {"akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons"}
         use {
             "nvim-lualine/lualine.nvim",
             requires = {"nvim-tree/nvim-web-devicons"}
