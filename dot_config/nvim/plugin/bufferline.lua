@@ -5,6 +5,8 @@ local separator_color = nvim_tree_separator_color.background or "none"
 
 bufferline.setup {
     options = {
+        show_tab_indicators = false,
+        show_close_icon = false,
         offsets = {
             {
                 filetype = "NvimTree",
