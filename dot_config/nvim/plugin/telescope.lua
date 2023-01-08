@@ -29,7 +29,8 @@ vim.keymap.set(
         }
     end
 )
-vim.keymap.set("n", "<leader>t", "<cmd>Telescope file_browser path=%:p:h<CR>")
+vim.keymap.set("n", "<leader>T", "<cmd>Telescope file_browser path=%:p:h<CR>")
+vim.keymap.set("n", "<leader>t", "<cmd>Telescope file_browser<CR>")
 vim.keymap.set("n", "<leader>f", telescope_builtin.find_files)
 vim.keymap.set(
     "n",
