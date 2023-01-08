@@ -30,7 +30,8 @@ mason_lsp.setup {
 
 local lspconfig = require("lspconfig")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local function on_attach()
+local augroup = vim.api.nvim_create_augroup("lsp", {clear = true})
+local function on_attach(client, bufnr)
     vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help)
     vim.keymap.set("n", "K", vim.lsp.buf.hover)
     vim.keymap.set("n", "gd", vim.lsp.buf.definition)
@@ -39,6 +40,30 @@ local function on_attach()
     vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action)
     vim.keymap.set("n", "<leader>c", vim.lsp.buf.rename)
     vim.keymap.set("n", "<leader>dd", vim.diagnostic.open_float)
+
+    if client.supports_method("textDocument/documentHighlight") then
+        vim.api.nvim_clear_autocmds({group = augroup, buffer = bufnr})
+        vim.api.nvim_create_autocmd(
+            "CursorHold",
+            {
+                buffer = bufnr,
+                group = augroup,
+                callback = function()
+                    vim.lsp.buf.document_highlight()
+                end
+            }
+        )
+        vim.api.nvim_create_autocmd(
+            "CursorMoved",
+            {
+                buffer = bufnr,
+                group = augroup,
+                callback = function()
+                    vim.lsp.buf.clear_references()
+                end
+            }
+        )
+    end
 end
 
 for _, server in ipairs(mason_lsp.get_installed_servers()) do
