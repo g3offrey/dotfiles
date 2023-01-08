@@ -243,6 +243,11 @@ local no_errors, error_msg =
                 path = "/Users/geoffrey/.local/share/nvim/site/pack/packer/opt/nvim-treesitter-textobjects",
                 url = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
             },
+            ["nvim-ts-autotag"] = {
+                loaded = true,
+                path = "/Users/geoffrey/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag",
+                url = "https://github.com/windwp/nvim-ts-autotag"
+            },
             ["nvim-web-devicons"] = {
                 loaded = true,
                 path = "/Users/geoffrey/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
