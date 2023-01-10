@@ -39,9 +39,27 @@ local function on_attach(client, bufnr)
     vim.keymap.set("n", "gi", vim.lsp.buf.implementation)
     vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action)
     vim.keymap.set("n", "<leader>c", vim.lsp.buf.rename)
-    vim.keymap.set("n", "<leader>dd", vim.diagnostic.open_float)
-    vim.keymap.set("n", "<leader>dj", vim.diagnostic.goto_next)
-    vim.keymap.set("n", "<leader>dk", vim.diagnostic.goto_prev)
+    vim.keymap.set(
+        "n",
+        "<leader>dd",
+        function()
+            vim.diagnostic.open_float({border = "rounded"})
+        end
+    )
+    vim.keymap.set(
+        "n",
+        "<leader>dj",
+        function()
+            vim.diagnostic.goto_next({float = {border = "rounded"}})
+        end
+    )
+    vim.keymap.set(
+        "n",
+        "<leader>dk",
+        function()
+            vim.diagnostic.goto_prev({float = {border = "rounded"}})
+        end
+    )
 
     if client.supports_method("textDocument/documentHighlight") then
         vim.api.nvim_clear_autocmds({group = augroup, buffer = bufnr})
