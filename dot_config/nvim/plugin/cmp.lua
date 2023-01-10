@@ -59,7 +59,15 @@ cmp.setup(
             }
         ),
         formatting = {
-            format = lspkind.cmp_format({})
+            fields = {"kind", "abbr", "menu"},
+            format = function(entry, vim_item)
+                local kind = lspkind.cmp_format({mode = "symbol_text"})(entry, vim_item)
+                local strings = vim.split(kind.kind, "%s", {trimempty = true})
+                kind.kind = strings[1] or ""
+                kind.menu = "(" .. (strings[2] or "") .. ")"
+
+                return kind
+            end
         }
     }
 )

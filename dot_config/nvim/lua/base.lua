@@ -33,7 +33,13 @@ vim.opt.cursorline = true
 vim.opt.foldlevel = 20
 vim.opt.foldmethod = "indent"
 
-vim.opt.grepprg = "rg --vimgrep --no-heading --smart-case"
+vim.opt.grepprg = "rg --vimgrep --no-heading --smart-case '$*'"
 vim.opt.grepformat = "%f:%l:%c:%m"
 
-vim.cmd [[colorscheme kanagawa]]
+require("onedark").setup(
+    {
+        style = "deep"
+    }
+)
+
+vim.cmd [[colorscheme onedark]]

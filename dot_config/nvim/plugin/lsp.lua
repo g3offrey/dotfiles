@@ -40,6 +40,8 @@ local function on_attach(client, bufnr)
     vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action)
     vim.keymap.set("n", "<leader>c", vim.lsp.buf.rename)
     vim.keymap.set("n", "<leader>dd", vim.diagnostic.open_float)
+    vim.keymap.set("n", "<leader>dj", vim.diagnostic.goto_next)
+    vim.keymap.set("n", "<leader>dk", vim.diagnostic.goto_prev)
 
     if client.supports_method("textDocument/documentHighlight") then
         vim.api.nvim_clear_autocmds({group = augroup, buffer = bufnr})

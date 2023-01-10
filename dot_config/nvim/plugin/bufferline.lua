@@ -1,6 +1,6 @@
 local bufferline = require("bufferline")
 
-local nvim_tree_separator_color = vim.api.nvim_get_hl_by_name("NvimTreeWinSeparator", true)
+local nvim_tree_separator_color = vim.api.nvim_get_hl_by_name("WinSeparator", true)
 local separator_color = nvim_tree_separator_color.background or "none"
 
 bufferline.setup {
