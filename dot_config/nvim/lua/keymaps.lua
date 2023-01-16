@@ -9,7 +9,7 @@ vim.keymap.set({"n", "v"}, "<S-p>", '"+p')
 -- handle buffers
 vim.keymap.set("n", "ta", "<cmd>Bdelete all<CR>")
 vim.keymap.set("n", "to", "<cmd>Bdelete other<CR>")
-vim.keymap.set("n", "tt", "<cmd>Bdelete this<CR>")
+vim.keymap.set("n", "tt", "<cmd>b#|bd#<CR>")
 vim.keymap.set("n", "tk", "<cmd>bprevious<CR>")
 vim.keymap.set("n", "tj", "<cmd>bnext<CR>")
 
