@@ -85,6 +85,5 @@ return require("packer").startup(
         use "navarasu/onedark.nvim"
         use "EdenEast/nightfox.nvim"
         use "sainnhe/gruvbox-material"
-        use "rose-pine/neovim"
     end
 )
