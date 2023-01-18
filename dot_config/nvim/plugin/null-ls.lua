@@ -4,7 +4,6 @@ local augroup = vim.api.nvim_create_augroup("autoformat", {clear = true})
 null_ls.setup {
     sources = {
         null_ls.builtins.formatting.prettier,
-        null_ls.builtins.formatting.eslint_d,
         null_ls.builtins.formatting.gofmt,
         null_ls.builtins.formatting.rustfmt,
         null_ls.builtins.formatting.deno_fmt.with {
