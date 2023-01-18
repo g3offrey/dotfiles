@@ -15,7 +15,7 @@ bufferline.setup {
                 separator = true
             }
         },
-        separator_style = "slant"
+        separator_style = "thin"
     },
     highlights = {
         offset_separator = {bg = separator_color, fg = nvim_tree_separator_color.foreground}
