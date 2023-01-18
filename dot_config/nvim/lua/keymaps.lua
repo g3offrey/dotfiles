@@ -7,9 +7,10 @@ vim.keymap.set({"n", "v"}, "<S-y>", '"+y')
 vim.keymap.set({"n", "v"}, "<S-p>", '"+p')
 
 -- handle buffers
+local buffers = require("g3offrey.buffers")
 vim.keymap.set("n", "ta", "<cmd>Bdelete all<CR>")
-vim.keymap.set("n", "to", "<cmd>Bdelete other<CR>")
-vim.keymap.set("n", "tt", "<cmd>b#|bd#<CR>")
+vim.keymap.set("n", "to", "<cmd>Bdelete hidden<CR>")
+vim.keymap.set("n", "tt", buffers.delete_buffer_and_go_to_previous_if_exists)
 vim.keymap.set("n", "tk", "<cmd>bprevious<CR>")
 vim.keymap.set("n", "tj", "<cmd>bnext<CR>")
 
