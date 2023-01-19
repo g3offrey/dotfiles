@@ -5,6 +5,9 @@ lualine.setup {
         -- component_separators = {left = "╲", right = "╱"},
         -- component_separators = "|",
         -- section_separators = {left = " ", right = " "},
+        separator = {left = "", right = ""},
+        component_separators = "",
+        section_separators = "",
         globalstatus = true
     },
     sections = {

@@ -196,11 +196,6 @@ local no_errors, error_msg =
                 path = "/Users/geoffrey/.local/share/nvim/site/pack/packer/start/neodev.nvim",
                 url = "https://github.com/folke/neodev.nvim"
             },
-            neovim = {
-                loaded = true,
-                path = "/Users/geoffrey/.local/share/nvim/site/pack/packer/start/neovim",
-                url = "https://github.com/rose-pine/neovim"
-            },
             ["nightfox.nvim"] = {
                 loaded = true,
                 path = "/Users/geoffrey/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
@@ -210,6 +205,11 @@ local no_errors, error_msg =
                 loaded = true,
                 path = "/Users/geoffrey/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
                 url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
+            },
+            nvim = {
+                loaded = true,
+                path = "/Users/geoffrey/.local/share/nvim/site/pack/packer/start/nvim",
+                url = "https://github.com/catppuccin/nvim"
             },
             ["nvim-autopairs"] = {
                 loaded = true,
