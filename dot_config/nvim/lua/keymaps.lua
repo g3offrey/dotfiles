@@ -16,8 +16,8 @@ vim.keymap.set("n", "tj", "<cmd>bnext<CR>")
 
 -- scroll
 vim.keymap.set("n", "ff", "<C-f>")
-vim.keymap.set("n", "fj", "<C-d>")
-vim.keymap.set("n", "fk", "<C-u>")
+vim.keymap.set("n", "fj", "<C-d>zz")
+vim.keymap.set("n", "fk", "<C-u>zz")
 
 -- windows
 vim.keymap.set("n", "<C-h>", "<C-w>h")
