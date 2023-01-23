@@ -25,8 +25,6 @@ vim.keymap.set("n", "<C-l>", "<C-w>l")
 vim.keymap.set("n", "<C-j>", "<C-w>j")
 vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<C-q>", "<C-w>q")
-vim.keymap.set("n", "<C-m>", "<C-w>|")
-vim.keymap.set("n", "<C-e>", "<C-w>=")
 vim.keymap.set("n", "<C-p>", "<C-w>p")
 vim.keymap.set("n", "<leader>@", "<C-w>w")
 
