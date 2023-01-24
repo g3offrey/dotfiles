@@ -285,6 +285,11 @@ local no_errors, error_msg =
                 path = "/Users/geoffrey/.local/share/nvim/site/pack/packer/opt/telescope-frecency.nvim",
                 url = "https://github.com/nvim-telescope/telescope-frecency.nvim"
             },
+            ["telescope-fzf-native.nvim"] = {
+                loaded = true,
+                path = "/Users/geoffrey/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
+                url = "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
+            },
             ["telescope-ui-select.nvim"] = {
                 loaded = true,
                 path = "/Users/geoffrey/.local/share/nvim/site/pack/packer/start/telescope-ui-select.nvim",

@@ -38,7 +38,13 @@ local function on_attach(client, bufnr)
     vim.keymap.set("n", "gd", vim.lsp.buf.definition)
     vim.keymap.set("n", "gD", vim.lsp.buf.declaration)
     vim.keymap.set("n", "gi", vim.lsp.buf.implementation)
-    vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action)
+    vim.keymap.set(
+        {"n", "v"},
+        "<leader>a",
+        function()
+            vim.lsp.buf.code_action()
+        end
+    )
     vim.keymap.set("n", "<leader>c", vim.lsp.buf.rename)
     vim.keymap.set(
         "n",

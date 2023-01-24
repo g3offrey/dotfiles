@@ -19,6 +19,7 @@ return require("packer").startup(
         }
         use {"nvim-telescope/telescope-file-browser.nvim"}
         use {"nvim-telescope/telescope-ui-select.nvim"}
+        use {"nvim-telescope/telescope-fzf-native.nvim", run = "make"}
 
         -- Status bar
         use {"akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons"}

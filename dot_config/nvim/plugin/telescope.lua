@@ -11,12 +11,21 @@ telescope.setup(
                     ["<C-q>"] = "smart_send_to_qflist"
                 }
             }
+        },
+        extensions = {
+            fzf = {
+                fuzzy = true,
+                override_generic_sorter = true,
+                override_file_sorter = true,
+                case_mode = "smart_case"
+            }
         }
     }
 )
 
 telescope.load_extension("frecency")
 telescope.load_extension("file_browser")
+telescope.load_extension("fzf")
 telescope.load_extension("ui-select")
 telescope.load_extension("harpoon")
 
