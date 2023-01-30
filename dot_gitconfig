@@ -1,14 +1,18 @@
 [core]
+	pager = delta
 	excludesfile = ~/.gitignore_global
 	editor = nvim
+
+[interactive]
+	diffFilter = delta --color-only
 
 [user]
 	email = 11151445+g3offrey@users.noreply.github.com
 	name = g3offrey
-	signingKey = 
 
 [merge]
 	tool = nvimdiff
+	conflictstyle = diff3
 
 [mergetool]
 	prompt = false
@@ -18,15 +22,13 @@
 
 [diff]
 	tool = nvimdiff
+	colorMoved = true
 
 [difftool]
 	prompt = false
 
 [difftool "nvimdiff"]
 	cmd = nvim -d $LOCAL $REMOTE
-
-[color]
-	ui = true
 
 [push]
 	default = upstream
@@ -35,11 +37,8 @@
 [pull]
 	rebase = true
 
-[commit]
-	gpgSign = true
-
-[tag]
-	gpgSign = true
+[rebase]
+	autosquash = true
 
 [rerere]
 	enabled = true
@@ -72,3 +71,12 @@
 		branch_name=$(git branch --format='%(refname:short)' | grep $1); \
 		git switch $branch_name; \
     }; f"
+
+[delta]
+	navigate = true
+	side-by-side = true
+	line-numbers = true
+	decorations = true
+	syntax-theme = OneHalfDark
+	plus-style = syntax "#0a6e3a"
+	minus-style = syntax "#e64c77"
