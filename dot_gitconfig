@@ -15,6 +15,8 @@
 	conflictstyle = diff3
 
 [mergetool]
+	keepBackup = false
+	keepTemporaries = false
 	prompt = false
 
 [mergetool "nvimdiff"]
@@ -77,6 +79,4 @@
 	side-by-side = true
 	line-numbers = true
 	decorations = true
-	syntax-theme = OneHalfDark
-	plus-style = syntax "#0a6e3a"
-	minus-style = syntax "#e64c77"
+	syntax-theme = Dracula
