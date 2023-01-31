@@ -3,12 +3,16 @@ local augroup = vim.api.nvim_create_augroup("autoformat", {clear = true})
 
 null_ls.setup {
     sources = {
-        null_ls.builtins.formatting.prettier,
+        null_ls.builtins.formatting.prettier.with {
+            condition = function(utils)
+                return utils.has_file {"package.json"}
+            end
+        },
         null_ls.builtins.formatting.gofmt,
         null_ls.builtins.formatting.rustfmt,
         null_ls.builtins.formatting.deno_fmt.with {
             condition = function(utils)
-                return utils.has_file {"deno.json"}
+                return utils.has_file {"deno.json", "deno.jsonc"}
             end
         }
     },
