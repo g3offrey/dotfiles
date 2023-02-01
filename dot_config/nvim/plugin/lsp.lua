@@ -18,7 +18,8 @@ local servers = {
     "prismals",
     "sumneko_lua",
     "tailwindcss",
-    "denols"
+    "denols",
+    "yamlls"
 }
 
 local mason = require("mason")
@@ -112,6 +113,19 @@ lspconfig.tsserver.setup {
     capabilities = capabilities,
     root_dir = lspconfig.util.root_pattern("package.json"),
     single_file_support = false
+}
+
+lspconfig.yamlls.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+        yaml = {
+            schemas = {
+                ["https://json.schemastore.org/github-workflow"] = ".github/workflows/*.y*ml",
+                ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "docker-compose*.y*ml"
+            }
+        }
+    }
 }
 
 -- customize lsp handlers
