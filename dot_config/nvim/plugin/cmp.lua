@@ -13,8 +13,8 @@ cmp.setup(
             end
         },
         window = {
-            completion = cmp.config.window.bordered(),
-            documentation = cmp.config.window.bordered()
+            completion = cmp.config.window.bordered({border = "none"}),
+            documentation = cmp.config.window.bordered({border = "none"})
         },
         mapping = cmp.mapping.preset.insert(
             {
@@ -63,8 +63,8 @@ cmp.setup(
             format = function(entry, vim_item)
                 local kind = lspkind.cmp_format({mode = "symbol_text"})(entry, vim_item)
                 local strings = vim.split(kind.kind, "%s", {trimempty = true})
-                kind.kind = strings[1] or ""
-                kind.menu = "(" .. (strings[2] or "") .. ")"
+                kind.kind = " " .. (strings[1] or "") .. " "
+                kind.menu = "    (" .. (strings[2] or "") .. ")"
 
                 return kind
             end
