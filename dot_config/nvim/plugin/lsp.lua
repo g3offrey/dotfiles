@@ -51,21 +51,21 @@ local function on_attach(client, bufnr)
         "n",
         "<leader>dd",
         function()
-            vim.diagnostic.open_float({border = "rounded"})
+            vim.diagnostic.open_float({border = "none"})
         end
     )
     vim.keymap.set(
         "n",
         "<leader>dj",
         function()
-            vim.diagnostic.goto_next({float = {border = "rounded"}})
+            vim.diagnostic.goto_next({float = {border = "none"}})
         end
     )
     vim.keymap.set(
         "n",
         "<leader>dk",
         function()
-            vim.diagnostic.goto_prev({float = {border = "rounded"}})
+            vim.diagnostic.goto_prev({float = {border = "none"}})
         end
     )
 
