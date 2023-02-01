@@ -5,20 +5,21 @@ local neodev = require("neodev")
 neodev.setup {}
 
 local servers = {
-    "html",
-    "cssls",
-    "dockerls",
-    "eslint",
-    "emmet_ls",
-    "gopls",
-    "rust_analyzer",
-    "tsserver",
     "astro",
-    "svelte",
-    "prismals",
-    "sumneko_lua",
-    "tailwindcss",
+    "bashls",
+    "cssls",
     "denols",
+    "dockerls",
+    "emmet_ls",
+    "eslint",
+    "gopls",
+    "html",
+    "prismals",
+    "rust_analyzer",
+    "sumneko_lua",
+    "svelte",
+    "tailwindcss",
+    "tsserver",
     "yamlls"
 }
 
