@@ -87,5 +87,10 @@ return require("packer").startup(
         use "EdenEast/nightfox.nvim"
         use "sainnhe/gruvbox-material"
         use "catppuccin/nvim"
+        use "glepnir/oceanic-material"
+        use {
+            "glepnir/zephyr-nvim",
+            requires = {"nvim-treesitter/nvim-treesitter", opt = true}
+        }
     end
 )

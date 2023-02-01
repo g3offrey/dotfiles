@@ -253,6 +253,11 @@ local no_errors, error_msg =
                 path = "/Users/geoffrey/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
                 url = "https://github.com/nvim-tree/nvim-web-devicons"
             },
+            ["oceanic-material"] = {
+                loaded = true,
+                path = "/Users/geoffrey/.local/share/nvim/site/pack/packer/start/oceanic-material",
+                url = "https://github.com/glepnir/oceanic-material"
+            },
             ["onedark.nvim"] = {
                 loaded = true,
                 path = "/Users/geoffrey/.local/share/nvim/site/pack/packer/start/onedark.nvim",
@@ -324,16 +329,21 @@ local no_errors, error_msg =
                 loaded = true,
                 path = "/Users/geoffrey/.local/share/nvim/site/pack/packer/start/vim-vsnip",
                 url = "https://github.com/hrsh7th/vim-vsnip"
+            },
+            ["zephyr-nvim"] = {
+                loaded = true,
+                path = "/Users/geoffrey/.local/share/nvim/site/pack/packer/start/zephyr-nvim",
+                url = "https://github.com/glepnir/zephyr-nvim"
             }
         }
 
         time([[Defining packer_plugins]], false)
         -- Load plugins in order defined by `after`
         time([[Sequenced loading]], true)
-        vim.cmd [[ packadd telescope.nvim ]]
-        vim.cmd [[ packadd telescope-frecency.nvim ]]
         vim.cmd [[ packadd nvim-treesitter ]]
         vim.cmd [[ packadd nvim-treesitter-textobjects ]]
+        vim.cmd [[ packadd telescope.nvim ]]
+        vim.cmd [[ packadd telescope-frecency.nvim ]]
         time([[Sequenced loading]], false)
 
         _G._packer.inside_compile = false

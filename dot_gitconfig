@@ -79,4 +79,4 @@
 	side-by-side = true
 	line-numbers = true
 	decorations = true
-	syntax-theme = Dracula
+	syntax-theme = Monokai Extended
