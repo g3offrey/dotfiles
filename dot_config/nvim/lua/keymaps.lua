@@ -26,6 +26,7 @@ vim.keymap.set("n", "<C-j>", "<C-w>j")
 vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<C-q>", "<C-w>q")
 vim.keymap.set("n", "<C-p>", "<C-w>p")
+vim.keymap.set("n", "<C-a>", "<C-w>o")
 vim.keymap.set("n", "<leader>@", "<C-w>w")
 
 -- search word undercursor
