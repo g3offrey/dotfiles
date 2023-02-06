@@ -141,6 +141,11 @@ local no_errors, error_msg =
                 path = "/Users/geoffrey/.local/share/nvim/site/pack/packer/start/diffview.nvim",
                 url = "https://github.com/sindrets/diffview.nvim"
             },
+            ["emmet-vim"] = {
+                loaded = true,
+                path = "/Users/geoffrey/.local/share/nvim/site/pack/packer/start/emmet-vim",
+                url = "https://github.com/mattn/emmet-vim"
+            },
             ["fidget.nvim"] = {
                 loaded = true,
                 path = "/Users/geoffrey/.local/share/nvim/site/pack/packer/start/fidget.nvim",
@@ -335,10 +340,10 @@ local no_errors, error_msg =
         time([[Defining packer_plugins]], false)
         -- Load plugins in order defined by `after`
         time([[Sequenced loading]], true)
-        vim.cmd [[ packadd telescope.nvim ]]
-        vim.cmd [[ packadd telescope-frecency.nvim ]]
         vim.cmd [[ packadd nvim-treesitter ]]
         vim.cmd [[ packadd nvim-treesitter-textobjects ]]
+        vim.cmd [[ packadd telescope.nvim ]]
+        vim.cmd [[ packadd telescope-frecency.nvim ]]
         time([[Sequenced loading]], false)
 
         _G._packer.inside_compile = false

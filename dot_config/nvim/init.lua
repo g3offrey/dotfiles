@@ -73,6 +73,7 @@ return require("packer").startup(
         -- Utils
         use "windwp/nvim-autopairs"
         use "windwp/nvim-ts-autotag"
+        use "mattn/emmet-vim"
         use "Asheq/close-buffers.vim"
         use "tpope/vim-sleuth"
         use "tpope/vim-surround"
