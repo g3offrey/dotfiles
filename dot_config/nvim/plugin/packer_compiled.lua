@@ -340,10 +340,10 @@ local no_errors, error_msg =
         time([[Defining packer_plugins]], false)
         -- Load plugins in order defined by `after`
         time([[Sequenced loading]], true)
-        vim.cmd [[ packadd nvim-treesitter ]]
-        vim.cmd [[ packadd nvim-treesitter-textobjects ]]
         vim.cmd [[ packadd telescope.nvim ]]
         vim.cmd [[ packadd telescope-frecency.nvim ]]
+        vim.cmd [[ packadd nvim-treesitter ]]
+        vim.cmd [[ packadd nvim-treesitter-textobjects ]]
         time([[Sequenced loading]], false)
 
         _G._packer.inside_compile = false

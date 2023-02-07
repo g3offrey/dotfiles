@@ -4,6 +4,7 @@ local augroup = vim.api.nvim_create_augroup("autoformat", {clear = true})
 null_ls.setup {
     sources = {
         null_ls.builtins.formatting.prettier.with {
+            extra_filetypes = {"svelte", "astro"},
             condition = function(utils)
                 return utils.has_file {"package.json"}
             end
