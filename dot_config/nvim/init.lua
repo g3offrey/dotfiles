@@ -1,93 +1,94 @@
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system(
+        {
+            "git",
+            "clone",
+            "--filter=blob:none",
+            "https://github.com/folke/lazy.nvim.git",
+            "--branch=stable", -- latest stable release
+            lazypath
+        }
+    )
+end
+vim.opt.rtp:prepend(lazypath)
+
 require("base")
 require("keymaps")
 require("autocmd")
 
-return require("packer").startup(
-    function(use)
-        use "wbthomason/packer.nvim"
-
+return require("lazy").setup(
+    {
         -- Telescope
-        use {
+        {
             "nvim-telescope/telescope.nvim",
-            tag = "0.1.x",
-            requires = {{"nvim-lua/plenary.nvim"}}
-        }
-        use {
+            version = "0.1.x",
+            dependencies = {{"nvim-lua/plenary.nvim"}}
+        },
+        {
             "nvim-telescope/telescope-frecency.nvim",
-            requires = {"kkharji/sqlite.lua"},
-            after = "telescope.nvim"
-        }
-        use {"nvim-telescope/telescope-file-browser.nvim"}
-        use {"nvim-telescope/telescope-ui-select.nvim"}
-        use {"nvim-telescope/telescope-fzf-native.nvim", run = "make"}
-
+            dependencies = {"kkharji/sqlite.lua"}
+        },
+        "nvim-telescope/telescope-file-browser.nvim",
+        "nvim-telescope/telescope-ui-select.nvim",
+        {"nvim-telescope/telescope-fzf-native.nvim", build = "make"},
         -- Status bar
-        use {"akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons"}
-        use {
+        {"akinsho/bufferline.nvim", version = "v3.*", dependencies = "nvim-tree/nvim-web-devicons"},
+        {
             "nvim-lualine/lualine.nvim",
-            requires = {"nvim-tree/nvim-web-devicons"}
-        }
-
+            dependencies = {"nvim-tree/nvim-web-devicons"}
+        },
         -- Nvim tree
-        use {
+        {
             "nvim-tree/nvim-tree.lua",
-            requires = {
+            dependencies = {
                 "nvim-tree/nvim-web-devicons"
             }
-        }
-
+        },
         -- Syntax Highlight
-        use {
+        {
             "nvim-treesitter/nvim-treesitter",
-            run = ":TSUpdate"
-        }
-        use {
-            "nvim-treesitter/nvim-treesitter-textobjects",
-            after = "nvim-treesitter"
-        }
-
+            build = ":TSUpdate"
+        },
+        "nvim-treesitter/nvim-treesitter-textobjects",
         -- Autoformat
-        use "jose-elias-alvarez/null-ls.nvim"
-
+        "jose-elias-alvarez/null-ls.nvim",
         -- Git integration
-        use "lewis6991/gitsigns.nvim"
-        use {"sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim"}
-        use "tpope/vim-fugitive"
-
+        "lewis6991/gitsigns.nvim",
+        {"sindrets/diffview.nvim", dependencies = "nvim-lua/plenary.nvim"},
+        "tpope/vim-fugitive",
         -- LSP
-        use "neovim/nvim-lspconfig"
-        use "williamboman/mason.nvim"
-        use "williamboman/mason-lspconfig.nvim"
-        use "folke/neodev.nvim"
-        use "hrsh7th/nvim-cmp"
-        use "hrsh7th/cmp-nvim-lsp"
-        use "hrsh7th/cmp-buffer"
-        use "hrsh7th/cmp-path"
-        use "hrsh7th/cmp-cmdline"
-        use "hrsh7th/cmp-vsnip"
-        use "hrsh7th/vim-vsnip"
-        use "onsails/lspkind.nvim"
-        use "github/copilot.vim"
-        use "j-hui/fidget.nvim"
-
+        "neovim/nvim-lspconfig",
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+        "folke/neodev.nvim",
+        "hrsh7th/nvim-cmp",
+        "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-buffer",
+        "hrsh7th/cmp-path",
+        "hrsh7th/cmp-cmdline",
+        "hrsh7th/cmp-vsnip",
+        "hrsh7th/vim-vsnip",
+        "onsails/lspkind.nvim",
+        "github/copilot.vim",
+        "j-hui/fidget.nvim",
         -- Utils
-        use "windwp/nvim-autopairs"
-        use "windwp/nvim-ts-autotag"
-        use "mattn/emmet-vim"
-        use "Asheq/close-buffers.vim"
-        use "tpope/vim-sleuth"
-        use "tpope/vim-surround"
-        use "numToStr/Comment.nvim"
-        use "ggandor/leap.nvim"
-        use "theprimeagen/harpoon"
-
+        "windwp/nvim-autopairs",
+        "windwp/nvim-ts-autotag",
+        "mattn/emmet-vim",
+        "Asheq/close-buffers.vim",
+        "tpope/vim-sleuth",
+        "tpope/vim-surround",
+        "numToStr/Comment.nvim",
+        "ggandor/leap.nvim",
+        "theprimeagen/harpoon",
         -- Colorschemes
-        use "folke/tokyonight.nvim"
-        use "rebelot/kanagawa.nvim"
-        use "navarasu/onedark.nvim"
-        use "EdenEast/nightfox.nvim"
-        use "sainnhe/gruvbox-material"
-        use "catppuccin/nvim"
-        use "nyoom-engineering/oxocarbon.nvim"
-    end
+        "folke/tokyonight.nvim",
+        "rebelot/kanagawa.nvim",
+        "navarasu/onedark.nvim",
+        "EdenEast/nightfox.nvim",
+        "sainnhe/gruvbox-material",
+        "catppuccin/nvim",
+        "nyoom-engineering/oxocarbon.nvim"
+    }
 )
