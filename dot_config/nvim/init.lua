@@ -82,6 +82,8 @@ return require("lazy").setup(
         "numToStr/Comment.nvim",
         "ggandor/leap.nvim",
         "theprimeagen/harpoon",
+        "goolord/alpha-nvim",
+        "gbprod/yanky.nvim",
         -- Colorschemes
         "folke/tokyonight.nvim",
         "rebelot/kanagawa.nvim",

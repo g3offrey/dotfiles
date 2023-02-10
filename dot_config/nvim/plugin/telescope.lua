@@ -28,6 +28,7 @@ telescope.load_extension("file_browser")
 telescope.load_extension("fzf")
 telescope.load_extension("ui-select")
 telescope.load_extension("harpoon")
+telescope.load_extension("yank_history")
 
 vim.keymap.set(
     "n",
@@ -77,3 +78,4 @@ vim.keymap.set("n", "<leader>td", telescope_builtin.lsp_type_definitions)
 vim.keymap.set("n", "<leader>i", telescope_builtin.lsp_implementations)
 vim.keymap.set("n", "<leader><space>", telescope_builtin.current_buffer_fuzzy_find)
 vim.keymap.set("n", "<leader>ht", telescope.extensions.harpoon.marks)
+vim.keymap.set("n", "<leader>y", telescope.extensions.yank_history.yank_history)

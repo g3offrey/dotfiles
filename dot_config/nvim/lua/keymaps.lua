@@ -2,10 +2,6 @@
 vim.keymap.set("i", "jj", "<Esc>")
 vim.keymap.set("t", "jj", "<C-\\><C-n>")
 
--- yanking
-vim.keymap.set({"n", "v"}, "<S-y>", '"+y')
-vim.keymap.set({"n", "v"}, "<S-p>", '"+p')
-
 -- handle buffers
 local buffers = require("g3offrey.buffers")
 vim.keymap.set("n", "ta", "<cmd>Bdelete all<CR>")
