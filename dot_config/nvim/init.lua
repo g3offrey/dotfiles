@@ -33,7 +33,6 @@ return require("lazy").setup(
         "nvim-telescope/telescope-ui-select.nvim",
         {"nvim-telescope/telescope-fzf-native.nvim", build = "make"},
         -- Status bar
-        {"akinsho/bufferline.nvim", version = "v3.*", dependencies = "nvim-tree/nvim-web-devicons"},
         {
             "nvim-lualine/lualine.nvim",
             dependencies = {"nvim-tree/nvim-web-devicons"}
