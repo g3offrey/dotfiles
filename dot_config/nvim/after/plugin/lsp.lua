@@ -14,6 +14,7 @@ local servers = {
     "gopls",
     "html",
     "prismals",
+    "graphql",
     "rust_analyzer",
     "sumneko_lua",
     "svelte",
