@@ -1,3 +1,7 @@
+require("base")
+require("keymaps")
+require("autocmd")
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system(
@@ -13,11 +17,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("base")
-require("keymaps")
-require("autocmd")
-
-return require("lazy").setup(
+require("lazy").setup(
     {
         -- Telescope
         {
@@ -85,11 +85,12 @@ return require("lazy").setup(
         "gbprod/yanky.nvim",
         -- Colorschemes
         "folke/tokyonight.nvim",
-        "rebelot/kanagawa.nvim",
-        "navarasu/onedark.nvim",
-        "EdenEast/nightfox.nvim",
-        "sainnhe/gruvbox-material",
-        "catppuccin/nvim",
-        "nyoom-engineering/oxocarbon.nvim"
+        {
+            "rebelot/kanagawa.nvim",
+            priority = 1000,
+            config = function()
+                vim.cmd [[colorscheme kanagawa]]
+            end
+        }
     }
 )
