@@ -1,5 +1,6 @@
 local telescope = require("telescope")
 local telescope_builtin = require("telescope.builtin")
+local telescope_actions = require("telescope.actions")
 
 telescope.setup(
     {
@@ -8,7 +9,8 @@ telescope.setup(
                 i = {
                     ["<C-j>"] = "move_selection_next",
                     ["<C-k>"] = "move_selection_previous",
-                    ["<C-q>"] = "smart_send_to_qflist"
+                    ["<C-q>"] = "smart_send_to_qflist",
+                    ["<C-t>"] = telescope_actions.delete_buffer
                 }
             }
         },
