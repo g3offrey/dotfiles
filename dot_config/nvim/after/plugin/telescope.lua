@@ -81,3 +81,5 @@ vim.keymap.set("n", "<leader>i", telescope_builtin.lsp_implementations)
 vim.keymap.set("n", "<leader><space>", telescope_builtin.current_buffer_fuzzy_find)
 vim.keymap.set("n", "<leader>ht", telescope.extensions.harpoon.marks)
 vim.keymap.set("n", "<leader>y", telescope.extensions.yank_history.yank_history)
+
+vim.api.nvim_set_hl(0, "TelescopeBorder", {bg = "none"})
