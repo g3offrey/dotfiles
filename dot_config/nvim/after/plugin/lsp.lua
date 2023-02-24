@@ -52,21 +52,21 @@ local function on_attach(client, bufnr)
         "n",
         "<leader>dd",
         function()
-            vim.diagnostic.open_float({border = "none"})
+            vim.diagnostic.open_float({border = "rounded"})
         end
     )
     vim.keymap.set(
         "n",
         "<leader>dj",
         function()
-            vim.diagnostic.goto_next({float = {border = "none"}})
+            vim.diagnostic.goto_next({float = {border = "rounded"}})
         end
     )
     vim.keymap.set(
         "n",
         "<leader>dk",
         function()
-            vim.diagnostic.goto_prev({float = {border = "none"}})
+            vim.diagnostic.goto_prev({float = {border = "rounded"}})
         end
     )
 
@@ -134,7 +134,7 @@ vim.lsp.handlers["textDocument/hover"] =
     vim.lsp.with(
     vim.lsp.handlers.hover,
     {
-        border = "none"
+        border = "rounded"
     }
 )
 
@@ -142,6 +142,6 @@ vim.lsp.handlers["textDocument/signatureHelp"] =
     vim.lsp.with(
     vim.lsp.handlers.signature_help,
     {
-        border = "none"
+        border = "rounded"
     }
 )

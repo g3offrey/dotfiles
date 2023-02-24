@@ -13,8 +13,8 @@ cmp.setup(
             end
         },
         window = {
-            completion = cmp.config.window.bordered({border = "none"}),
-            documentation = cmp.config.window.bordered({border = "none"})
+            completion = cmp.config.window.bordered({border = "rounded"}),
+            documentation = cmp.config.window.bordered({border = "rounded"})
         },
         mapping = cmp.mapping.preset.insert(
             {
