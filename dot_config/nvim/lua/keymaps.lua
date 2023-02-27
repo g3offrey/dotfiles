@@ -41,6 +41,3 @@ vim.keymap.set(
 -- yank_path
 local yank_p = require("g3offrey.yank_path")
 vim.keymap.set("n", "<leader>y", yank_p.copy_file_path)
-
--- copilot
-vim.keymap.set("i", "<C-j>", 'copilot#Accept("")', {replace_keycodes = false, expr = true})
