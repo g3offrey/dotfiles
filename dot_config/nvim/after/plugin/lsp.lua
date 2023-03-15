@@ -20,7 +20,8 @@ local servers = {
     "svelte",
     "tailwindcss",
     "tsserver",
-    "yamlls"
+    "yamlls",
+    "ansiblels"
 }
 
 local mason = require("mason")
