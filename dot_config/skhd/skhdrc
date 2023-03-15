@@ -1,9 +1,9 @@
 # -- Changing Window Focus --
 # change window focus within space
-shift + alt - j : yabai -m window --focus south
-shift + alt - k : yabai -m window --focus north
-shift + alt - h : yabai -m window --focus west
-shift + alt - l : yabai -m window --focus east
+cmd + shift - j : yabai -m window --focus south
+cmd + shift - k : yabai -m window --focus north
+cmd + shift - h : yabai -m window --focus west
+cmd + shift - l : yabai -m window --focus east
 
 # -- Modifying the Layout --
 # rotate layout clockwise
@@ -24,7 +24,15 @@ shift + alt - e : yabai -m space --balance
 
 # -- Moving Windows Around --
 # swap windows
-shift + alt - down : yabai -m window --swap south
-shift + alt - up : yabai -m window --swap north
-shift + alt - left : yabai -m window --swap west
-shift + alt - right : yabai -m window --swap east
+alt + shift - j : yabai -m window --swap south
+alt + shift - k : yabai -m window --swap north
+alt + shift - h : yabai -m window --swap west
+alt + shift - l : yabai -m window --swap east
+# warp windows
+ctrl + shift - j : yabai -m window --warp south
+ctrl + shift - k : yabai -m window --warp north
+ctrl + shift - h : yabai -m window --warp west
+ctrl + shift - l : yabai -m window --warp east
+# move window to prev and next space
+shift + alt - p : yabai -m window --space prev;
+shift + alt - n : yabai -m window --space next;
