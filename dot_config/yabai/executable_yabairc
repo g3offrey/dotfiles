@@ -1,0 +1,13 @@
+# default layout (can be bsp, stack or float)
+yabai -m config layout bsp
+
+# padding set to 5px
+yabai -m config top_padding 5
+yabai -m config bottom_padding 5
+yabai -m config left_padding 5
+yabai -m config right_padding 5
+yabai -m config window_gap 5
+
+# disable specific apps
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^Calculator$" manage=off
