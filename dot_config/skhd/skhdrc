@@ -24,10 +24,10 @@ shift + alt - e : yabai -m space --balance
 
 # -- Moving Windows Around --
 # swap windows
-alt + shift - j : yabai -m window --swap south
-alt + shift - k : yabai -m window --swap north
-alt + shift - h : yabai -m window --swap west
-alt + shift - l : yabai -m window --swap east
+fn + shift - j : yabai -m window --swap south
+fn + shift - k : yabai -m window --swap north
+fn + shift - h : yabai -m window --swap west
+fn + shift - l : yabai -m window --swap east
 # warp windows
 ctrl + shift - j : yabai -m window --warp south
 ctrl + shift - k : yabai -m window --warp north
