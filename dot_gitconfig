@@ -12,7 +12,6 @@
 
 [merge]
 	tool = nvimdiff
-	conflictstyle = diff3
 
 [mergetool]
 	keepBackup = false
@@ -20,7 +19,7 @@
 	prompt = false
 
 [mergetool "nvimdiff"]
-	cmd = nvim  -d $MERGED $LOCAL $BASE $REMOTE -c 'wincmd J | wincmd ='
+	cmd = nvim -d $LOCAL $MERGED $REMOTE -c 'wincmd l | wincmd ='
 
 [diff]
 	tool = nvimdiff
@@ -76,7 +75,7 @@
 
 [delta]
 	navigate = true
-	side-by-side = true
+	side-by-side = false
 	line-numbers = true
 	decorations = true
 	syntax-theme = Monokai Extended
