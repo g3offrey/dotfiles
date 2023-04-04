@@ -16,6 +16,8 @@ vim.keymap.set("n", "fj", "<C-d>zz")
 vim.keymap.set("n", "fk", "<C-u>zz")
 
 -- windows
+vim.keymap.set("n", "<C-s>", "<C-w>s")
+vim.keymap.set("n", "<C-v>", "<C-w>v")
 vim.keymap.set("n", "<C-h>", "<C-w>h")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
 vim.keymap.set("n", "<C-j>", "<C-w>j")
@@ -23,7 +25,11 @@ vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<C-q>", "<C-w>q")
 vim.keymap.set("n", "<C-p>", "<C-w>p")
 vim.keymap.set("n", "<C-a>", "<C-w>o")
-vim.keymap.set("n", "<leader>@", "<C-w>w")
+vim.keymap.set("n", "<M-Right>", "<cmd>vertical resize +2<CR>")
+vim.keymap.set("n", "<M-Left>", "<cmd>vertical resize -2<CR>")
+vim.keymap.set("n", "<M-Up>", "<cmd>resize -2<CR>")
+vim.keymap.set("n", "<M-Down>", "<cmd>resize +2<CR>")
+vim.keymap.set("n", "<C-w>+", "<C-w>_<C-w>|")
 
 -- search word undercursor
 vim.keymap.set("v", "/", "y/<C-R>0<CR>")
@@ -37,6 +43,12 @@ vim.keymap.set(
         vim.cmd("wshada!")
     end
 )
+
+-- diff
+vim.keymap.set("n", "ggh", "<cmd>diffget //2<CR>")
+vim.keymap.set("n", "ggl", "<cmd>diffget //3<CR>")
+vim.keymap.set("n", "ggj", "]c")
+vim.keymap.set("n", "ggk", "[c")
 
 -- yank_path
 local yank_p = require("g3offrey.yank_path")

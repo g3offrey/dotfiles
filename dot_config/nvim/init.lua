@@ -50,6 +50,7 @@ require("lazy").setup(
             build = ":TSUpdate"
         },
         "nvim-treesitter/nvim-treesitter-textobjects",
+        "nvim-treesitter/nvim-treesitter-context",
         -- Autoformat
         "jose-elias-alvarez/null-ls.nvim",
         -- Git integration
@@ -105,6 +106,7 @@ require("lazy").setup(
                     },
                     overrides = function(colors)
                         local theme = colors.theme
+                        local palette = colors.palette
 
                         return {
                             NormalFloat = {bg = "none"},
@@ -123,7 +125,8 @@ require("lazy").setup(
                             TelescopeResultsNormal = {fg = theme.ui.fg_dim, bg = theme.ui.bg_m1},
                             TelescopeResultsBorder = {fg = theme.ui.bg_m1, bg = theme.ui.bg_m1},
                             TelescopePreviewNormal = {bg = theme.ui.bg_dim},
-                            TelescopePreviewBorder = {bg = theme.ui.bg_dim, fg = theme.ui.bg_dim}
+                            TelescopePreviewBorder = {bg = theme.ui.bg_dim, fg = theme.ui.bg_dim},
+                            WinSeparator = {fg = palette.waveBlue2, bg = "none"}
                         }
                     end
                 }
