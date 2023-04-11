@@ -86,6 +86,7 @@ require("lazy").setup(
         "gbprod/yanky.nvim",
         -- Colorschemes
         "folke/tokyonight.nvim",
+        "catppuccin/nvim",
         {
             "rebelot/kanagawa.nvim",
             priority = 1000,

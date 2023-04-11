@@ -31,6 +31,9 @@ vim.keymap.set("n", "<M-Down>", "<cmd>resize +2<CR>")
 vim.keymap.set("n", "<C-w>+", "<C-w>_<C-w>|")
 vim.keymap.set("n", "<leader>@", "<C-w>p")
 
+-- save file
+vim.keymap.set("n", "<leader>w", "<cmd>w ++p<CR>")
+
 -- search word undercursor
 vim.keymap.set("v", "/", "y/<C-R>0<CR>")
 
