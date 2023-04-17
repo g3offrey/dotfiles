@@ -75,7 +75,7 @@
 
 [delta]
 	navigate = true
-	side-by-side = false
+	side-by-side = true
 	line-numbers = true
 	decorations = true
 	syntax-theme = Monokai Extended
