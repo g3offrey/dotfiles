@@ -11,11 +11,11 @@ lualine.setup {
         globalstatus = true
     },
     sections = {
-        lualine_a = {{"filename", path = 1, separator = {left = "", right = ""}}},
+        lualine_a = {{"mode", separator = {left = "", right = ""}}},
         lualine_b = {"diagnostics"},
-        lualine_c = {},
+        lualine_c = {{"filename", path = 1}},
         lualine_x = {"branch", "diff"},
         lualine_y = {"encoding", "fileformat", "filetype"},
-        lualine_z = {{"mode", separator = {left = "", right = ""}}}
+        lualine_z = {{"progress", separator = {left = "", right = ""}}}
     }
 }
