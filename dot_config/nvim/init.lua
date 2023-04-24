@@ -84,6 +84,7 @@ require("lazy").setup(
         "theprimeagen/harpoon",
         "goolord/alpha-nvim",
         "gbprod/yanky.nvim",
+        "christoomey/vim-tmux-navigator",
         -- Colorschemes
         {
             "rebelot/kanagawa.nvim",
