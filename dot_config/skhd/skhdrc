@@ -1,38 +1,43 @@
 # -- Changing Window Focus --
 # change window focus within space
-cmd + shift - j : yabai -m window --focus south
-cmd + shift - k : yabai -m window --focus north
-cmd + shift - h : yabai -m window --focus west
-cmd + shift - l : yabai -m window --focus east
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+alt - h : yabai -m window --focus west
+alt - l : yabai -m window --focus east
 
 # -- Modifying the Layout --
 # rotate layout clockwise
-shift + alt - r : yabai -m space --rotate 270
+alt + shift - r : yabai -m space --rotate 270
 # flip along y-axis
-shift + alt - y : yabai -m space --mirror y-axis
+alt + shift - y : yabai -m space --mirror y-axis
 # flip along x-axis
-shift + alt - x : yabai -m space --mirror x-axis
+alt + shift - x : yabai -m space --mirror x-axis
 # toggle window float
-shift + alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
+alt + shift - f : yabai -m window --toggle float --grid 4:4:1:1:2:2
 
 
 # -- Modifying Window Size --
 # maximize a window
-shift + alt - m : yabai -m window --toggle zoom-fullscreen
+alt + shift - m : yabai -m window --toggle zoom-fullscreen
+alt - space : yabai -m window --toggle zoom-fullscreen
 # balance out tree of windows (resize to occupy same area)
-shift + alt - e : yabai -m space --balance
+alt + shift - e : yabai -m space --balance
 
 # -- Moving Windows Around --
 # swap windows
-fn + shift - j : yabai -m window --swap south
-fn + shift - k : yabai -m window --swap north
-fn + shift - h : yabai -m window --swap west
-fn + shift - l : yabai -m window --swap east
+cmd + shift - j : yabai -m window --swap south
+cmd + shift - k : yabai -m window --swap north
+cmd + shift - h : yabai -m window --swap west
+cmd + shift - l : yabai -m window --swap east
 # warp windows
 ctrl + shift - j : yabai -m window --warp south
 ctrl + shift - k : yabai -m window --warp north
 ctrl + shift - h : yabai -m window --warp west
 ctrl + shift - l : yabai -m window --warp east
 # move window to prev and next space
-shift + alt - p : yabai -m window --space prev;
-shift + alt - n : yabai -m window --space next;
+alt + shift - p : yabai -m window --space prev;
+alt + shift - n : yabai -m window --space next;
+
+# -- Run programs --
+alt + shift - t : open -n -a /Applications/Alacritty.app
+alt - t : open -a /Applications/Alacritty.app
