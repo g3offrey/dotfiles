@@ -72,6 +72,7 @@ require("lazy").setup(
         "onsails/lspkind.nvim",
         "github/copilot.vim",
         "j-hui/fidget.nvim",
+        "folke/trouble.nvim",
         -- Utils
         "windwp/nvim-autopairs",
         "windwp/nvim-ts-autotag",
