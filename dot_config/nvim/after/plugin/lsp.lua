@@ -10,6 +10,7 @@ local servers = {
     "cssls",
     "denols",
     "dockerls",
+    "docker_compose_language_service",
     "eslint",
     "gopls",
     "html",
@@ -124,7 +125,6 @@ lspconfig.yamlls.setup {
         yaml = {
             schemas = {
                 ["https://json.schemastore.org/github-workflow"] = ".github/workflows/*.y*ml",
-                ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "docker-compose*.y*ml"
             }
         }
     }
