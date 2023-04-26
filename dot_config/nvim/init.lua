@@ -67,6 +67,8 @@ require("lazy").setup(
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-cmdline",
+        "hrsh7th/cmp-nvim-lsp-document-symbol",
+        "hrsh7th/cmp-nvim-lsp-signature-help",
         "hrsh7th/cmp-vsnip",
         "hrsh7th/vim-vsnip",
         "onsails/lspkind.nvim",
@@ -94,7 +96,7 @@ require("lazy").setup(
                 local kanagawa = require("kanagawa")
 
                 kanagawa.setup {
-                    theme = "wave",
+                    theme = "dragon",
                     transparent = false,
                     colors = {
                         theme = {
@@ -135,7 +137,7 @@ require("lazy").setup(
                     end
                 }
 
-                vim.cmd.colorscheme("kanagawa-wave")
+                vim.cmd.colorscheme("kanagawa-dragon")
             end
         }
     }
