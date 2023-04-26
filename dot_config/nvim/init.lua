@@ -95,7 +95,7 @@ require("lazy").setup(
 
                 kanagawa.setup {
                     theme = "wave",
-                    transparent = true,
+                    transparent = false,
                     colors = {
                         theme = {
                             all = {
@@ -107,11 +107,11 @@ require("lazy").setup(
                     },
                     overrides = function(colors)
                         local theme = colors.theme
-                        local palette = colors.palette
 
                         return {
                             NormalFloat = {bg = "none"},
                             FloatBorder = {bg = "none"},
+                            FloatTitle = {bg = "none"},
                             -- Save an hlgroup with dark background and dimmed foreground
                             -- so that you can use it where your still want darker windows.
                             -- E.g.: autocmd TermOpen * setlocal winhighlight=Normal:NormalDark
@@ -127,7 +127,10 @@ require("lazy").setup(
                             TelescopeResultsBorder = {fg = theme.ui.bg_m1, bg = theme.ui.bg_m1},
                             TelescopePreviewNormal = {bg = theme.ui.bg_dim},
                             TelescopePreviewBorder = {bg = theme.ui.bg_dim, fg = theme.ui.bg_dim},
-                            WinSeparator = {fg = palette.waveBlue2, bg = "none"}
+                            Pmenu = {fg = theme.ui.shade0, bg = theme.ui.bg_p1},
+                            PmenuSel = {fg = "NONE", bg = theme.ui.bg_p2},
+                            PmenuSbar = {bg = theme.ui.bg_m1},
+                            PmenuThumb = {bg = theme.ui.bg_p2}
                         }
                     end
                 }

@@ -1,4 +1,4 @@
-local trouble = require('trouble')
+local trouble = require("trouble")
 
 trouble.setup {}
 vim.keymap.set("n", "<leader>xd", "<cmd>TroubleToggle workspace_diagnostics<CR>")

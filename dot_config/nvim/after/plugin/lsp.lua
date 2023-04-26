@@ -54,21 +54,21 @@ local function on_attach(client, bufnr)
         "n",
         "<leader>dd",
         function()
-            vim.diagnostic.open_float({border = "rounded"})
+            vim.diagnostic.open_float({border = "single"})
         end
     )
     vim.keymap.set(
         "n",
         "<leader>dj",
         function()
-            vim.diagnostic.goto_next({float = {border = "rounded"}})
+            vim.diagnostic.goto_next({float = {border = "single"}})
         end
     )
     vim.keymap.set(
         "n",
         "<leader>dk",
         function()
-            vim.diagnostic.goto_prev({float = {border = "rounded"}})
+            vim.diagnostic.goto_prev({float = {border = "single"}})
         end
     )
 
@@ -124,7 +124,7 @@ lspconfig.yamlls.setup {
     settings = {
         yaml = {
             schemas = {
-                ["https://json.schemastore.org/github-workflow"] = ".github/workflows/*.y*ml",
+                ["https://json.schemastore.org/github-workflow"] = ".github/workflows/*.y*ml"
             }
         }
     }
@@ -135,7 +135,7 @@ vim.lsp.handlers["textDocument/hover"] =
     vim.lsp.with(
     vim.lsp.handlers.hover,
     {
-        border = "rounded"
+        border = "single"
     }
 )
 
@@ -143,6 +143,6 @@ vim.lsp.handlers["textDocument/signatureHelp"] =
     vim.lsp.with(
     vim.lsp.handlers.signature_help,
     {
-        border = "rounded"
+        border = "single"
     }
 )
