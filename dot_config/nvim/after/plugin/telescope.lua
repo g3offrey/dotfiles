@@ -5,6 +5,14 @@ local telescope_actions = require("telescope.actions")
 telescope.setup(
     {
         defaults = {
+            results_title = false,
+            preview_title = false,
+            sorting_strategy = "ascending",
+            layout_config = {
+                horizontal = {
+                    prompt_position = "top"
+                }
+            },
             mappings = {
                 i = {
                     ["<C-j>"] = "move_selection_next",
@@ -72,6 +80,7 @@ vim.keymap.set("n", "<leader>p", telescope_builtin.commands)
 vim.keymap.set("n", "<leader><S-p>", telescope_builtin.command_history)
 vim.keymap.set("n", "<leader>e", telescope_builtin.jumplist)
 vim.keymap.set("n", "<leader>m", telescope_builtin.marks)
+vim.keymap.set("n", "<leader>ts", telescope_builtin.treesitter)
 vim.keymap.set("n", "<leader>s", telescope_builtin.lsp_document_symbols)
 vim.keymap.set("n", "<leader><S-s>", telescope_builtin.lsp_dynamic_workspace_symbols)
 vim.keymap.set("n", "<leader>r", telescope_builtin.lsp_references)
