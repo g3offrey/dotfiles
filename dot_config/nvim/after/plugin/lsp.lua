@@ -118,6 +118,18 @@ lspconfig.tsserver.setup {
     single_file_support = false
 }
 
+lspconfig.rust_analyzer.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+        ["rust-analyzer"] = {
+            checkOnSave = {
+                command = "clippy"
+            }
+        }
+    }
+}
+
 lspconfig.yamlls.setup {
     on_attach = on_attach,
     capabilities = capabilities,
