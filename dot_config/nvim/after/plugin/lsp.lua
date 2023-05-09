@@ -129,6 +129,16 @@ lspconfig.rust_analyzer.setup {
     }
 }
 
+lspconfig.gopls.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+        gopls = {
+            staticcheck = true
+        }
+    }
+}
+
 lspconfig.yamlls.setup {
     on_attach = on_attach,
     capabilities = capabilities,
