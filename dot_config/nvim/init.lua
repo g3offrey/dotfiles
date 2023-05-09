@@ -96,7 +96,7 @@ require("lazy").setup(
                 local kanagawa = require("kanagawa")
 
                 kanagawa.setup {
-                    theme = "dragon",
+                    theme = "wave",
                     transparent = false,
                     colors = {
                         theme = {
@@ -137,7 +137,7 @@ require("lazy").setup(
                     end
                 }
 
-                vim.cmd.colorscheme("kanagawa-dragon")
+                vim.cmd.colorscheme("kanagawa-wave")
             end
         }
     }
