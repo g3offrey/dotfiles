@@ -22,7 +22,8 @@ local servers = {
     "tailwindcss",
     "tsserver",
     "yamlls",
-    "ansiblels"
+    "ansiblels",
+    "volar"
 }
 
 local mason = require("mason")
