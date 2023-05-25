@@ -25,7 +25,6 @@ telescope.setup(
     }
 )
 
-telescope.load_extension("frecency")
 telescope.load_extension("file_browser")
 telescope.load_extension("fzf")
 telescope.load_extension("ui-select")
@@ -55,30 +54,15 @@ vim.keymap.set(
         )
     end
 )
-vim.keymap.set(
-    "n",
-    "<leader><S-q>",
-    function()
-        telescope.extensions.frecency.frecency {
-            workspace = "CWD"
-        }
-    end
-)
 vim.keymap.set("n", "<leader>v", telescope_builtin.git_status)
 vim.keymap.set("n", "<leader>g", telescope_builtin.live_grep)
 vim.keymap.set("n", "<leader>b", telescope_builtin.buffers)
 vim.keymap.set("n", "<leader>dl", telescope_builtin.diagnostics)
-vim.keymap.set("n", "<leader>p", telescope_builtin.commands)
-vim.keymap.set("n", "<leader><S-p>", telescope_builtin.command_history)
+vim.keymap.set("n", "<leader>p", telescope_builtin.command_history)
 vim.keymap.set("n", "<leader>e", telescope_builtin.jumplist)
 vim.keymap.set("n", "<leader>m", telescope_builtin.marks)
-vim.keymap.set("n", "<leader>ts", telescope_builtin.treesitter)
 vim.keymap.set("n", "<leader>s", telescope_builtin.lsp_document_symbols)
-vim.keymap.set("n", "<leader><S-s>", telescope_builtin.lsp_dynamic_workspace_symbols)
-vim.keymap.set("n", "<leader>r", telescope_builtin.lsp_references)
-vim.keymap.set("n", "<leader>d", telescope_builtin.lsp_definitions)
-vim.keymap.set("n", "<leader>td", telescope_builtin.lsp_type_definitions)
-vim.keymap.set("n", "<leader>i", telescope_builtin.lsp_implementations)
+vim.keymap.set("n", "<leader>S", telescope_builtin.lsp_dynamic_workspace_symbols)
 vim.keymap.set("n", "<leader><space>", telescope_builtin.current_buffer_fuzzy_find)
 vim.keymap.set("n", "<leader>ht", telescope.extensions.harpoon.marks)
 vim.keymap.set("n", "<leader>y", telescope.extensions.yank_history.yank_history)
