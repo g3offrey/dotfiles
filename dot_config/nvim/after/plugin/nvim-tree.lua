@@ -7,4 +7,4 @@ nvim_tree.setup {
     }
 }
 
-vim.keymap.set("n", "<leader>n", nvim_tree_api.tree.toggle)
+vim.keymap.set("n", "<leader>n", nvim_tree_api.tree.toggle, {desc = "Toggle file tree"})

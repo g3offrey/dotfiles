@@ -37,40 +37,44 @@ local lspconfig = require("lspconfig")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local augroup = vim.api.nvim_create_augroup("lsp", {clear = true})
 local function on_attach(client, bufnr)
-    vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help)
-    vim.keymap.set("n", "K", vim.lsp.buf.hover)
-    vim.keymap.set("n", "gtd", vim.lsp.buf.type_definition)
-    vim.keymap.set("n", "gd", vim.lsp.buf.definition)
-    vim.keymap.set("n", "gD", vim.lsp.buf.declaration)
-    vim.keymap.set("n", "gi", vim.lsp.buf.implementation)
+    vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, {desc = "Signature help"})
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, {desc = "Hover"})
+    vim.keymap.set("n", "gtd", vim.lsp.buf.type_definition, {desc = "Go to type definition"})
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition, {desc = "Go to definition"})
+    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, {desc = "Go to declaration"})
+    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {desc = "Go to implementation"})
     vim.keymap.set(
         {"n", "v"},
         "<leader>a",
         function()
             vim.lsp.buf.code_action()
-        end
+        end,
+        {desc = "Code action"}
     )
-    vim.keymap.set("n", "<leader>c", vim.lsp.buf.rename)
+    vim.keymap.set("n", "<leader>c", vim.lsp.buf.rename, {desc = "Rename"})
     vim.keymap.set(
         "n",
         "<leader>dd",
         function()
             vim.diagnostic.open_float({border = "single"})
-        end
+        end,
+        {desc = "Open Diagnostics"}
     )
     vim.keymap.set(
         "n",
         "<leader>dj",
         function()
             vim.diagnostic.goto_next({float = {border = "single"}})
-        end
+        end,
+        {desc = "Next Diagnostic"}
     )
     vim.keymap.set(
         "n",
         "<leader>dk",
         function()
             vim.diagnostic.goto_prev({float = {border = "single"}})
-        end
+        end,
+        {desc = "Previous Diagnostic"}
     )
 
     if client.supports_method("textDocument/documentHighlight") then

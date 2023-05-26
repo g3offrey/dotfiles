@@ -84,6 +84,7 @@ require("lazy").setup(
         "goolord/alpha-nvim",
         "gbprod/yanky.nvim",
         "christoomey/vim-tmux-navigator",
+        "folke/which-key.nvim",
         -- Colorschemes
         {
             "rebelot/kanagawa.nvim",
