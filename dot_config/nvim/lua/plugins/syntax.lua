@@ -64,13 +64,5 @@ return {
         end
     },
     {"windwp/nvim-autopairs", dependencies = "nvim-treesitter/nvim-treesitter", config = true},
-    {"windwp/nvim-ts-autotag", dependencies = "nvim-treesitter/nvim-treesitter", config = true},
-    {
-        "lukas-reineke/indent-blankline.nvim",
-        dependencies = "nvim-treesitter/nvim-treesitter",
-        opts = {
-            show_current_context = true,
-            show_current_context_start = true
-        }
-    }
+    {"windwp/nvim-ts-autotag", dependencies = "nvim-treesitter/nvim-treesitter", config = true}
 }
