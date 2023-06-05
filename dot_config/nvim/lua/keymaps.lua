@@ -46,12 +46,6 @@ vim.keymap.set(
     {desc = "Delete all marks"}
 )
 
--- diff
-vim.keymap.set("n", "ggh", "<cmd>diffget //2<CR>", {desc = "Get from left"})
-vim.keymap.set("n", "ggl", "<cmd>diffget //3<CR>", {desc = "Get from right"})
-vim.keymap.set("n", "ggj", "]c", {desc = "Next diff"})
-vim.keymap.set("n", "ggk", "[c", {desc = "Previous diff"})
-
 -- yank_path
 local yank_p = require("g3offrey.yank_path")
 vim.keymap.set("n", "<leader>y", yank_p.copy_file_path, {desc = "Copy file path"})
