@@ -82,6 +82,7 @@ return {
             vim.keymap.set("n", "<leader>g", telescope_builtin.live_grep, {desc = "Find in files"})
             vim.keymap.set("n", "<leader>b", telescope_builtin.buffers, {desc = "Find buffers"})
             vim.keymap.set("n", "<leader>dl", telescope_builtin.diagnostics, {desc = "Find diagnostics"})
+            vim.keymap.set("n", "<leader>r", telescope_builtin.lsp_references, {desc = "Find references"})
             vim.keymap.set("n", "<leader>p", telescope_builtin.command_history, {desc = "Command history"})
             vim.keymap.set("n", "<leader>e", telescope_builtin.jumplist, {desc = "Jumplist"})
             vim.keymap.set("n", "<leader>m", telescope_builtin.marks, {desc = "Marks"})
