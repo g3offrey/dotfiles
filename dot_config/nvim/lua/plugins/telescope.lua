@@ -6,9 +6,7 @@ return {
             "nvim-lua/plenary.nvim",
             "nvim-telescope/telescope-file-browser.nvim",
             "nvim-telescope/telescope-ui-select.nvim",
-            {"nvim-telescope/telescope-fzf-native.nvim", build = "make"},
-            "theprimeagen/harpoon",
-            "gbprod/yanky.nvim"
+            {"nvim-telescope/telescope-fzf-native.nvim", build = "make"}
         },
         config = function()
             local telescope = require("telescope")
@@ -41,8 +39,6 @@ return {
             telescope.load_extension("file_browser")
             telescope.load_extension("fzf")
             telescope.load_extension("ui-select")
-            telescope.load_extension("harpoon")
-            telescope.load_extension("yank_history")
 
             vim.keymap.set(
                 "n",

@@ -26,9 +26,7 @@ return {
         dependencies = {
             "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
-            "hrsh7th/cmp-nvim-lsp",
-            {"folke/neodev.nvim", config = true},
-            {"j-hui/fidget.nvim", config = true}
+            "hrsh7th/cmp-nvim-lsp"
         },
         config = function()
             local mason = require("mason")
@@ -178,5 +176,7 @@ return {
                 }
             )
         end
-    }
+    },
+    {"folke/neodev.nvim", dependencies = "neovim/nvim-lspconfig", config = true},
+    {"j-hui/fidget.nvim", dependencies = "neovim/nvim-lspconfig", config = true}
 }

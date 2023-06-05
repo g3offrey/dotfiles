@@ -4,9 +4,7 @@ return {
         build = ":TSUpdate",
         dependencies = {
             "nvim-treesitter/nvim-treesitter-textobjects",
-            "nvim-treesitter/nvim-treesitter-context",
-            {"windwp/nvim-autopairs", config = true},
-            {"windwp/nvim-ts-autotag", config = true}
+            "nvim-treesitter/nvim-treesitter-context"
         },
         config = function()
             local ts = require("nvim-treesitter.configs")
@@ -64,5 +62,15 @@ return {
                 }
             }
         end
+    },
+    {"windwp/nvim-autopairs", dependencies = "nvim-treesitter/nvim-treesitter", config = true},
+    {"windwp/nvim-ts-autotag", dependencies = "nvim-treesitter/nvim-treesitter", config = true},
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        dependencies = "nvim-treesitter/nvim-treesitter",
+        opts = {
+            show_current_context = true,
+            show_current_context_start = true
+        }
     }
 }

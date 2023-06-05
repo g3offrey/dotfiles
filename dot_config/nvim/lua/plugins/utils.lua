@@ -14,9 +14,13 @@ return {
     },
     {
         "theprimeagen/harpoon",
+        dependencies = "nvim-telescope/telescope.nvim",
         config = function()
             local harpoon_mark = require("harpoon.mark")
             local harpoon_ui = require("harpoon.ui")
+            local telescope = require("telescope")
+
+            telescope.load_extension("harpoon")
 
             vim.keymap.set("n", "<leader>hd", harpoon_mark.clear_all, {desc = "Clear all marks"})
             vim.keymap.set("n", "<leader>hh", harpoon_mark.toggle_file, {desc = "Toggle mark"})
@@ -28,10 +32,13 @@ return {
     "goolord/alpha-nvim",
     {
         "gbprod/yanky.nvim",
+        dependencies = "nvim-telescope/telescope.nvim",
         config = function()
             local yanky = require("yanky")
+            local telescope = require("telescope")
 
             yanky.setup {}
+            telescope.load_extension("yank_history")
 
             vim.keymap.set({"n", "x"}, "p", "<Plug>(YankyPutAfter)", {desc = "Paste after"})
             vim.keymap.set({"n", "x"}, "P", "<Plug>(YankyPutBefore)", {desc = "Paste before"})
