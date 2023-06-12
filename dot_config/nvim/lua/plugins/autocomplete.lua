@@ -178,5 +178,5 @@ return {
         end
     },
     {"folke/neodev.nvim", dependencies = "neovim/nvim-lspconfig", config = true},
-    {"j-hui/fidget.nvim", dependencies = "neovim/nvim-lspconfig", config = true}
+    {"j-hui/fidget.nvim", dependencies = "neovim/nvim-lspconfig", config = true, tag = "legacy"}
 }
