@@ -92,8 +92,6 @@ return {
             vim.keymap.set("n", "<leader><space>", telescope_builtin.current_buffer_fuzzy_find, {desc = "Fuzzy find"})
             vim.keymap.set("n", "<leader>ht", telescope.extensions.harpoon.marks, {desc = "List marks"})
             vim.keymap.set("n", "<leader>y", telescope.extensions.yank_history.yank_history, {desc = "Yank history"})
-
-            vim.api.nvim_set_hl(0, "TelescopeBorder", {bg = "none"})
         end
     }
 }

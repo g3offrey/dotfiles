@@ -1,6 +1,7 @@
 return {
     "rebelot/kanagawa.nvim",
     priority = 1000,
+    lazy = false,
     config = function()
         local kanagawa = require("kanagawa")
 
@@ -41,7 +42,9 @@ return {
                     Pmenu = {fg = theme.ui.shade0, bg = theme.ui.bg_p1},
                     PmenuSel = {fg = "NONE", bg = theme.ui.bg_p2},
                     PmenuSbar = {bg = theme.ui.bg_m1},
-                    PmenuThumb = {bg = theme.ui.bg_p2}
+                    PmenuThumb = {bg = theme.ui.bg_p2},
+                    -- override winbar bg color (from lualine)
+                    StatusLine = {bg = "none"}
                 }
             end
         }
