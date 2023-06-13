@@ -58,5 +58,11 @@ return {
 
             wk.register()
         end
+    },
+    {
+        "szw/vim-maximizer",
+        config = function()
+            vim.keymap.set("n", "<C-w>m", "<cmd>MaximizerToggle<CR>", {desc = "Maximize current window"})
+        end
     }
 }

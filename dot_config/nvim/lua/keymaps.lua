@@ -26,7 +26,7 @@ vim.keymap.set("n", "<M-Right>", "<cmd>vertical resize +2<CR>", {desc = "Increas
 vim.keymap.set("n", "<M-Left>", "<cmd>vertical resize -2<CR>", {desc = "Decrease split width"})
 vim.keymap.set("n", "<M-Up>", "<cmd>resize -2<CR>", {desc = "Decrease split height"})
 vim.keymap.set("n", "<M-Down>", "<cmd>resize +2<CR>", {desc = "Increase split height"})
-vim.keymap.set("n", "<C-w>+", "<C-w>_<C-w>|", {desc = "Maximize current split"})
+-- vim.keymap.set("n", "<C-w>+", "<C-w>_<C-w>|", {desc = "Maximize current split"})
 vim.keymap.set("n", "<leader>@", "<C-w>p", {desc = "Go to previous split"})
 
 -- save file
