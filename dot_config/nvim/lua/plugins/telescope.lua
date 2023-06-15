@@ -78,15 +78,31 @@ return {
             vim.keymap.set("n", "<leader>g", telescope_builtin.live_grep, {desc = "Find in files"})
             vim.keymap.set("n", "<leader>b", telescope_builtin.buffers, {desc = "Find buffers"})
             vim.keymap.set("n", "<leader>dl", telescope_builtin.diagnostics, {desc = "Find diagnostics"})
-            vim.keymap.set("n", "<leader>r", telescope_builtin.lsp_references, {desc = "Find references"})
+            vim.keymap.set(
+                "n",
+                "<leader>r",
+                function()
+                    telescope_builtin.lsp_references({show_line = false})
+                end,
+                {desc = "Find references"}
+            )
             vim.keymap.set("n", "<leader>p", telescope_builtin.command_history, {desc = "Command history"})
             vim.keymap.set("n", "<leader>e", telescope_builtin.jumplist, {desc = "Jumplist"})
             vim.keymap.set("n", "<leader>m", telescope_builtin.marks, {desc = "Marks"})
-            vim.keymap.set("n", "<leader>s", telescope_builtin.lsp_document_symbols, {desc = "Find document symbols"})
+            vim.keymap.set(
+                "n",
+                "<leader>s",
+                function()
+                    telescope_builtin.lsp_document_symbols({show_line = false})
+                end,
+                {desc = "Find document symbols"}
+            )
             vim.keymap.set(
                 "n",
                 "<leader>S",
-                telescope_builtin.lsp_dynamic_workspace_symbols,
+                function()
+                    telescope_builtin.lsp_dynamic_workspace_symbols({show_line = false})
+                end,
                 {desc = "Find workspace symbols"}
             )
             vim.keymap.set("n", "<leader><space>", telescope_builtin.current_buffer_fuzzy_find, {desc = "Fuzzy find"})
