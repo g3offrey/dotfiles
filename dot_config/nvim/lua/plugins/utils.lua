@@ -5,12 +5,31 @@ return {
     "tpope/vim-surround",
     {"numToStr/Comment.nvim", config = true},
     {
-        "ggandor/leap.nvim",
-        config = function()
-            local leap = require("leap")
-
-            leap.add_default_mappings {}
-        end
+        "folke/flash.nvim",
+        event = "VeryLazy",
+        opts = {},
+        keys = {
+            {
+                "s",
+                mode = {"n", "x", "o"},
+                function()
+                    require("flash").jump()
+                end,
+                {
+                    desc = "Flash jump"
+                }
+            },
+            {
+                "S",
+                mode = {"n", "o", "x"},
+                function()
+                    require("flash").treesitter()
+                end,
+                {
+                    desc = "Flash treesitter"
+                }
+            }
+        }
     },
     {
         "theprimeagen/harpoon",
