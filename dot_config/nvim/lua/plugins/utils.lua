@@ -69,14 +69,12 @@ return {
     "christoomey/vim-tmux-navigator",
     {
         "folke/which-key.nvim",
-        config = function()
+        event = "VeryLazy",
+        init = function()
             vim.o.timeout = true
             vim.o.timeoutlen = 300
-
-            local wk = require("which-key")
-
-            wk.register()
-        end
+        end,
+        opts = {}
     },
     {
         "szw/vim-maximizer",
