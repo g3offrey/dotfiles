@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+PROJECTS_PATH=~/Code
+DEPTH=2
+
+if [[ $# -eq 1 ]]; then
+    selected=$1
+else
+    selected=$(fd -d $DEPTH -t d . $PROJECTS_PATH | fzf)
+fi
+
+if [[ -z $selected ]]; then
+    exit 0
+fi
+
+session_name=$(basename "$selected" | tr . _)
+
+tmux new -A -s "$session_name" -c "$selected"
