@@ -80,8 +80,8 @@ return {
                     {desc = "Previous Diagnostic"}
                 )
 
+                vim.api.nvim_clear_autocmds({group = augroup, buffer = bufnr})
                 if client.supports_method("textDocument/documentHighlight") then
-                    vim.api.nvim_clear_autocmds({group = augroup, buffer = bufnr})
                     vim.api.nvim_create_autocmd(
                         "CursorHold",
                         {
@@ -99,6 +99,19 @@ return {
                             group = augroup,
                             callback = function()
                                 vim.lsp.buf.clear_references()
+                            end
+                        }
+                    )
+                end
+
+                if client.supports_method("textDocument/formatting") then
+                    vim.api.nvim_create_autocmd(
+                        "BufWritePre",
+                        {
+                            group = augroup,
+                            buffer = bufnr,
+                            callback = function()
+                                vim.lsp.buf.format({bufnr = bufnr, timeout_ms = 5000})
                             end
                         }
                     )
@@ -179,5 +192,12 @@ return {
     },
     {"folke/neodev.nvim", dependencies = "neovim/nvim-lspconfig", config = true},
     {"j-hui/fidget.nvim", dependencies = "neovim/nvim-lspconfig", config = true, tag = "legacy"},
-    {"fatih/vim-go"}
+    {"fatih/vim-go"},
+    {
+        "prettier/vim-prettier",
+        config = function()
+            vim.g["prettier#autoformat"] = 1
+            vim.g["prettier#autoformat_require_pragma"] = 0
+        end
+    }
 }
