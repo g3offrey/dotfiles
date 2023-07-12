@@ -1,203 +1,120 @@
-local servers = {
-    "astro",
-    "bashls",
-    "cssls",
-    "denols",
-    "dockerls",
-    "docker_compose_language_service",
-    "eslint",
-    "gopls",
-    "html",
-    "prismals",
-    "graphql",
-    "rust_analyzer",
-    "lua_ls",
-    "svelte",
-    "tailwindcss",
-    "tsserver",
-    "yamlls",
-    "ansiblels",
-    "volar"
-}
-
 return {
     {
-        "neovim/nvim-lspconfig",
+        "hrsh7th/nvim-cmp",
         dependencies = {
-            "williamboman/mason.nvim",
-            "williamboman/mason-lspconfig.nvim",
-            "hrsh7th/cmp-nvim-lsp"
+            "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-path",
+            "hrsh7th/cmp-cmdline",
+            "hrsh7th/cmp-nvim-lsp-document-symbol",
+            "hrsh7th/cmp-nvim-lsp-signature-help",
+            "hrsh7th/cmp-vsnip",
+            "hrsh7th/vim-vsnip",
+            "onsails/lspkind.nvim"
         },
         config = function()
-            local mason = require("mason")
-            mason.setup {}
-            local mason_lsp = require("mason-lspconfig")
-            mason_lsp.setup {
-                ensure_installed = servers
-            }
+            local cmp = require("cmp")
+            local lspkind = require("lspkind")
 
-            local lspconfig = require("lspconfig")
-            local capabilities = require("cmp_nvim_lsp").default_capabilities()
-            local augroup = vim.api.nvim_create_augroup("lsp", {clear = true})
-            local function on_attach(client, bufnr)
-                vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, {desc = "Signature help"})
-                vim.keymap.set("n", "K", vim.lsp.buf.hover, {desc = "Hover"})
-                vim.keymap.set("n", "gtd", vim.lsp.buf.type_definition, {desc = "Go to type definition"})
-                vim.keymap.set("n", "gd", vim.lsp.buf.definition, {desc = "Go to definition"})
-                vim.keymap.set("n", "gD", vim.lsp.buf.declaration, {desc = "Go to declaration"})
-                vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {desc = "Go to implementation"})
-                vim.keymap.set(
-                    {"n", "v"},
-                    "<leader>a",
-                    function()
-                        vim.lsp.buf.code_action()
-                    end,
-                    {desc = "Code action"}
-                )
-                vim.keymap.set("n", "<leader>c", vim.lsp.buf.rename, {desc = "Rename"})
-                vim.keymap.set(
-                    "n",
-                    "<leader>dd",
-                    function()
-                        vim.diagnostic.open_float({border = "single"})
-                    end,
-                    {desc = "Open Diagnostics"}
-                )
-                vim.keymap.set(
-                    "n",
-                    "<leader>dj",
-                    function()
-                        vim.diagnostic.goto_next({float = {border = "single"}})
-                    end,
-                    {desc = "Next Diagnostic"}
-                )
-                vim.keymap.set(
-                    "n",
-                    "<leader>dk",
-                    function()
-                        vim.diagnostic.goto_prev({float = {border = "single"}})
-                    end,
-                    {desc = "Previous Diagnostic"}
-                )
-
-                vim.api.nvim_clear_autocmds({group = augroup, buffer = bufnr})
-                if client.supports_method("textDocument/documentHighlight") then
-                    vim.api.nvim_create_autocmd(
-                        "CursorHold",
-                        {
-                            buffer = bufnr,
-                            group = augroup,
-                            callback = function()
-                                vim.lsp.buf.document_highlight()
-                            end
-                        }
-                    )
-                    vim.api.nvim_create_autocmd(
-                        "CursorMoved",
-                        {
-                            buffer = bufnr,
-                            group = augroup,
-                            callback = function()
-                                vim.lsp.buf.clear_references()
-                            end
-                        }
-                    )
-                end
-
-                if client.supports_method("textDocument/formatting") then
-                    vim.api.nvim_create_autocmd(
-                        "BufWritePre",
-                        {
-                            group = augroup,
-                            buffer = bufnr,
-                            callback = function()
-                                vim.lsp.buf.format({bufnr = bufnr, timeout_ms = 5000})
-                            end
-                        }
-                    )
-                end
+            local feedkey = function(key, mode)
+                vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
             end
 
-            for _, server in ipairs(mason_lsp.get_installed_servers()) do
-                lspconfig[server].setup {
-                    on_attach = on_attach,
-                    capabilities = capabilities
-                }
-            end
-
-            -- override server config
-            lspconfig.denols.setup {
-                on_attach = on_attach,
-                capabilities = capabilities,
-                root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc")
-            }
-
-            lspconfig.tsserver.setup {
-                on_attach = on_attach,
-                capabilities = capabilities,
-                root_dir = lspconfig.util.root_pattern("package.json")
-            }
-
-            lspconfig.rust_analyzer.setup {
-                on_attach = on_attach,
-                capabilities = capabilities,
-                settings = {
-                    ["rust-analyzer"] = {
-                        checkOnSave = {
-                            command = "clippy"
-                        }
-                    }
-                }
-            }
-
-            lspconfig.gopls.setup {
-                on_attach = on_attach,
-                capabilities = capabilities,
-                settings = {
-                    gopls = {
-                        staticcheck = true
-                    }
-                }
-            }
-
-            lspconfig.yamlls.setup {
-                on_attach = on_attach,
-                capabilities = capabilities,
-                settings = {
-                    yaml = {
-                        schemas = {
-                            ["https://json.schemastore.org/github-workflow"] = ".github/workflows/*.y*ml"
-                        }
-                    }
-                }
-            }
-
-            -- customize lsp handlers
-            vim.lsp.handlers["textDocument/hover"] =
-                vim.lsp.with(
-                vim.lsp.handlers.hover,
+            cmp.setup(
                 {
-                    border = "single"
+                    snippet = {
+                        expand = function(args)
+                            vim.fn["vsnip#anonymous"](args.body)
+                        end
+                    },
+                    mapping = cmp.mapping.preset.insert(
+                        {
+                            ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+                            ["<C-f>"] = cmp.mapping.scroll_docs(4),
+                            ["<C-Space>"] = cmp.mapping.complete(),
+                            ["<C-e>"] = cmp.mapping.abort(),
+                            ["<CR>"] = cmp.mapping.confirm({select = false, behavior = cmp.ConfirmBehavior.Replace}),
+                            ["<Tab>"] = cmp.mapping(
+                                function(fallback)
+                                    if cmp.visible() then
+                                        cmp.select_next_item()
+                                    elseif vim.fn["vsnip#available"](1) == 1 then
+                                        feedkey("<Plug>(vsnip-expand-or-jump)", "")
+                                    else
+                                        fallback()
+                                    end
+                                end,
+                                {"i", "s"}
+                            ),
+                            ["<S-Tab>"] = cmp.mapping(
+                                function()
+                                    if cmp.visible() then
+                                        cmp.select_prev_item()
+                                    elseif vim.fn["vsnip#jumpable"](-1) == 1 then
+                                        feedkey("<Plug>(vsnip-jump-prev)", "")
+                                    end
+                                end,
+                                {"i", "s"}
+                            )
+                        }
+                    ),
+                    sources = cmp.config.sources(
+                        {
+                            {name = "nvim_lsp_signature_help"}
+                        },
+                        {
+                            {name = "nvim_lsp"}
+                        },
+                        {
+                            {name = "vsnip"}
+                        },
+                        {
+                            {name = "buffer"}
+                        }
+                    ),
+                    formatting = {
+                        fields = {"kind", "abbr", "menu"},
+                        format = function(entry, vim_item)
+                            local kind = lspkind.cmp_format({mode = "symbol_text"})(entry, vim_item)
+                            local strings = vim.split(kind.kind, "%s", {trimempty = true})
+                            kind.kind = " " .. (strings[1] or "") .. " "
+                            kind.menu = "    (" .. (strings[2] or "") .. ")"
+
+                            return kind
+                        end
+                    }
                 }
             )
 
-            vim.lsp.handlers["textDocument/signatureHelp"] =
-                vim.lsp.with(
-                vim.lsp.handlers.signature_help,
+            cmp.setup.cmdline(
+                {"/", "?"},
                 {
-                    border = "single"
+                    mapping = cmp.mapping.preset.cmdline(),
+                    sources = cmp.config.sources(
+                        {
+                            {name = "nvim_lsp_document_symbol"}
+                        },
+                        {
+                            {name = "buffer"}
+                        }
+                    )
                 }
             )
-        end
-    },
-    {"folke/neodev.nvim", dependencies = "neovim/nvim-lspconfig", config = true},
-    {"j-hui/fidget.nvim", dependencies = "neovim/nvim-lspconfig", config = true, tag = "legacy"},
-    {"fatih/vim-go"},
-    {
-        "prettier/vim-prettier",
-        config = function()
-            vim.g["prettier#autoformat"] = 1
-            vim.g["prettier#autoformat_require_pragma"] = 0
+
+            cmp.setup.cmdline(
+                ":",
+                {
+                    mapping = cmp.mapping.preset.cmdline(),
+                    sources = cmp.config.sources(
+                        {
+                            {name = "path"}
+                        },
+                        {
+                            {name = "cmdline"}
+                        }
+                    )
+                }
+            )
         end
     }
 }
