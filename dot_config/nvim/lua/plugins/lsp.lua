@@ -65,7 +65,6 @@ function set_keybinds()
 end
 
 function set_autocmds(client, bufnr)
-    vim.api.nvim_clear_autocmds({group = augroup, buffer = bufnr})
     if client.supports_method("textDocument/documentHighlight") then
         vim.api.nvim_create_autocmd(
             "CursorHold",
@@ -96,8 +95,17 @@ function set_autocmds(client, bufnr)
                 group = augroup,
                 buffer = bufnr,
                 callback = function()
-                    vim.lsp.buf.format({bufnr = bufnr, timeout_ms = 5000})
+                    vim.lsp.buf.format({bufnr = bufnr})
                 end
+            }
+        )
+    else
+        vim.api.nvim_create_autocmd(
+            "BufWritePost",
+            {
+                group = augroup,
+                buffer = bufnr,
+                command = "silent! FormatWrite"
             }
         )
     end
@@ -109,7 +117,8 @@ return {
         dependencies = {
             "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
-            "hrsh7th/cmp-nvim-lsp"
+            "hrsh7th/cmp-nvim-lsp",
+            "mhartington/formatter.nvim"
         },
         config = function()
             local mason = require("mason")
@@ -202,10 +211,27 @@ return {
     {"j-hui/fidget.nvim", dependencies = "neovim/nvim-lspconfig", config = true, tag = "legacy"},
     {"fatih/vim-go"},
     {
-        "prettier/vim-prettier",
-        config = function()
-            vim.g["prettier#autoformat"] = 1
-            vim.g["prettier#autoformat_require_pragma"] = 0
+        "mhartington/formatter.nvim",
+        opts = function()
+            return {
+                filetype = {
+                    lua = {
+                        require("formatter.filetypes.lua").stylua
+                    },
+                    typescript = {
+                        require("formatter.filetypes.typescript").prettier
+                    },
+                    typescriptreact = {
+                        require("formatter.filetypes.typescriptreact").prettier
+                    },
+                    javascript = {
+                        require("formatter.filetypes.javascript").prettier
+                    },
+                    javascriptreact = {
+                        require("formatter.filetypes.javascriptreact").prettier
+                    }
+                }
+            }
         end
     }
 }
