@@ -10,13 +10,11 @@ return {
         keys = {
             {
                 "<leader>n",
-                mode = {"n"},
                 function()
                     require("oil").toggle_float()
                 end,
-                {
-                    desc = "Toggle file tree"
-                }
+                mode = {"n"},
+                desc = "Toggle file tree"
             }
         }
     }
