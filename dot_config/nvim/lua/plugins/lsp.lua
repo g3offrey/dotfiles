@@ -209,7 +209,12 @@ return {
     },
     {"folke/neodev.nvim", dependencies = "neovim/nvim-lspconfig", config = true},
     {"j-hui/fidget.nvim", dependencies = "neovim/nvim-lspconfig", config = true, tag = "legacy"},
-    {"fatih/vim-go"},
+    {
+        "fatih/vim-go",
+        config = function()
+            vim.g.go_echo_command_info = 0
+        end
+    },
     {
         "mhartington/formatter.nvim",
         opts = function()
