@@ -207,8 +207,8 @@ return {
             )
         end
     },
-    {"folke/neodev.nvim", dependencies = "neovim/nvim-lspconfig", config = true},
-    {"j-hui/fidget.nvim", dependencies = "neovim/nvim-lspconfig", config = true, tag = "legacy"},
+    {"folke/neodev.nvim", dependencies = "neovim/nvim-lspconfig", opts = {}},
+    {"j-hui/fidget.nvim", dependencies = "neovim/nvim-lspconfig", opts = {}, tag = "legacy"},
     {
         "fatih/vim-go",
         config = function()

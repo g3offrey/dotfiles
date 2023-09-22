@@ -8,9 +8,154 @@ return {
             "nvim-telescope/telescope-ui-select.nvim",
             {"nvim-telescope/telescope-fzf-native.nvim", build = "make"}
         },
+        keys = {
+            {
+                "<leader><leader>",
+                function()
+                    require("telescope.builtin").git_files {
+                        hidden = true
+                    }
+                end,
+                {
+                    desc = "Find in versioned files"
+                }
+            },
+            {
+                "<leader>T",
+                "<cmd>Telescope file_browser path=%:p:h<CR>",
+                {desc = "Browse files in current directory"}
+            },
+            {
+                "<leader>t",
+                "<cmd>Telescope file_browser<CR>",
+                {
+                    desc = "Browse files in workplace"
+                }
+            },
+            {
+                "<leader>f",
+                function()
+                    require("telescope.builtin").find_files()
+                end,
+                {desc = "Find files"}
+            },
+            {
+                "<leader>q",
+                function()
+                    require("telescope.builtin").oldfiles(
+                        {
+                            cwd_only = true
+                        }
+                    )
+                end,
+                {
+                    desc = "Find recently opened files"
+                }
+            },
+            {
+                "<leader>v",
+                function()
+                    require("telescope.builtin").git_status()
+                end,
+                {
+                    desc = "Find versioned files"
+                }
+            },
+            {
+                "<leader>g",
+                function()
+                    require("telescope.builtin").live_grep()
+                end,
+                {desc = "Find in files"}
+            },
+            {
+                "<leader>b",
+                function()
+                    require("telescope.builtin").buffers()
+                end,
+                {desc = "Find buffers"}
+            },
+            {
+                "<leader>dl",
+                function()
+                    require("telescope.builtin").diagnostics()
+                end,
+                {desc = "Find diagnostics"}
+            },
+            {
+                "<leader>r",
+                function()
+                    require("telescope.builtin").lsp_references({show_line = false})
+                end,
+                {desc = "Find references"}
+            },
+            {
+                "<leader>p",
+                function()
+                    require("telescope.builtin").command_history()
+                end,
+                {
+                    desc = "Command history"
+                }
+            },
+            {
+                "<leader>e",
+                function()
+                    require("telescope.builtin").jumplist()
+                end,
+                {desc = "Jumplist"}
+            },
+            {
+                "<leader>m",
+                function()
+                    require("telescope.builtin").marks()
+                end,
+                {desc = "Marks"}
+            },
+            {
+                "<leader>s",
+                function()
+                    require("telescope.builtin").lsp_document_symbols({show_line = false})
+                end,
+                {desc = "Find document symbols"}
+            },
+            {
+                "<leader>S",
+                function()
+                    require("telescope.builtin").lsp_dynamic_workspace_symbols({show_line = false})
+                end,
+                {desc = "Find workspace symbols"}
+            },
+            {
+                "<leader><space>",
+                function()
+                    require("telescope.builtin").current_buffer_fuzzy_find()
+                end,
+                {
+                    desc = "Fuzzy find"
+                }
+            },
+            {
+                "<leader>ht",
+                function()
+                    require("telescope").extensions.harpoon.marks()
+                end,
+                {
+                    desc = "List marks"
+                }
+            },
+            {
+                "<leader>y",
+                function()
+                    require("telescope").extensions.yank_history.yank_history()
+                end,
+                {
+                    desc = "Yank history"
+                }
+            }
+        },
         config = function()
             local telescope = require("telescope")
-            local telescope_builtin = require("telescope.builtin")
             local telescope_actions = require("telescope.actions")
 
             telescope.setup(
@@ -39,92 +184,52 @@ return {
             telescope.load_extension("file_browser")
             telescope.load_extension("fzf")
             telescope.load_extension("ui-select")
-
-            vim.keymap.set(
-                "n",
-                "<leader><leader>",
-                function()
-                    telescope_builtin.git_files {
-                        hidden = true
-                    }
-                end,
-                {
-                    desc = "Find in versioned files"
-                }
-            )
-            vim.keymap.set(
-                "n",
-                "<leader>T",
-                "<cmd>Telescope file_browser path=%:p:h<CR>",
-                {desc = "Browse files in current directory"}
-            )
-            vim.keymap.set("n", "<leader>t", "<cmd>Telescope file_browser<CR>", {desc = "Browse files in workplace"})
-            vim.keymap.set("n", "<leader>f", telescope_builtin.find_files, {desc = "Find files"})
-            vim.keymap.set(
-                "n",
-                "<leader>q",
-                function()
-                    telescope_builtin.oldfiles(
-                        {
-                            cwd_only = true
-                        }
-                    )
-                end,
-                {
-                    desc = "Find recently opened files"
-                }
-            )
-            vim.keymap.set("n", "<leader>v", telescope_builtin.git_status, {desc = "Find versioned files"})
-            vim.keymap.set("n", "<leader>g", telescope_builtin.live_grep, {desc = "Find in files"})
-            vim.keymap.set("n", "<leader>b", telescope_builtin.buffers, {desc = "Find buffers"})
-            vim.keymap.set("n", "<leader>dl", telescope_builtin.diagnostics, {desc = "Find diagnostics"})
-            vim.keymap.set(
-                "n",
-                "<leader>r",
-                function()
-                    telescope_builtin.lsp_references({show_line = false})
-                end,
-                {desc = "Find references"}
-            )
-            vim.keymap.set("n", "<leader>p", telescope_builtin.command_history, {desc = "Command history"})
-            vim.keymap.set("n", "<leader>e", telescope_builtin.jumplist, {desc = "Jumplist"})
-            vim.keymap.set("n", "<leader>m", telescope_builtin.marks, {desc = "Marks"})
-            vim.keymap.set(
-                "n",
-                "<leader>s",
-                function()
-                    telescope_builtin.lsp_document_symbols({show_line = false})
-                end,
-                {desc = "Find document symbols"}
-            )
-            vim.keymap.set(
-                "n",
-                "<leader>S",
-                function()
-                    telescope_builtin.lsp_dynamic_workspace_symbols({show_line = false})
-                end,
-                {desc = "Find workspace symbols"}
-            )
-            vim.keymap.set("n", "<leader><space>", telescope_builtin.current_buffer_fuzzy_find, {desc = "Fuzzy find"})
-            vim.keymap.set("n", "<leader>ht", telescope.extensions.harpoon.marks, {desc = "List marks"})
-            vim.keymap.set("n", "<leader>y", telescope.extensions.yank_history.yank_history, {desc = "Yank history"})
         end
     },
     {
         "theprimeagen/harpoon",
         dependencies = "nvim-telescope/telescope.nvim",
+        keys = {
+            {
+                "<leader>hd",
+                function()
+                    require("harpoon.mark").clear_all()
+                end,
+                {desc = "Clear all marks"}
+            },
+            {
+                "<leader>hh",
+                function()
+                    require("harpoon.mark").toggle_file()
+                end,
+                {desc = "Toggle mark"}
+            },
+            {
+                "<leader>hl",
+                function()
+                    require("harpoon.ui").toggle_quick_menu()
+                end,
+                {desc = "Toggle quick menu"}
+            },
+            {
+                "<leader>hj",
+                function()
+                    require("harpoon.ui").nav_next()
+                end,
+                {desc = "Next mark"}
+            },
+            {
+                "<leader>hk",
+                function()
+                    require("harpoon.ui").nav_prev()
+                end,
+                {desc = "Previous mark"}
+            }
+        },
         config = function()
-            local harpoon_mark = require("harpoon.mark")
-            local harpoon_ui = require("harpoon.ui")
             local telescope = require("telescope")
 
             telescope.load_extension("harpoon")
-
-            vim.keymap.set("n", "<leader>hd", harpoon_mark.clear_all, {desc = "Clear all marks"})
-            vim.keymap.set("n", "<leader>hh", harpoon_mark.toggle_file, {desc = "Toggle mark"})
-            vim.keymap.set("n", "<leader>hl", harpoon_ui.toggle_quick_menu, {desc = "Toggle quick menu"})
-            vim.keymap.set("n", "<leader>hj", harpoon_ui.nav_next, {desc = "Next mark"})
-            vim.keymap.set("n", "<leader>hk", harpoon_ui.nav_prev, {desc = "Previous mark"})
         end
     }
 }

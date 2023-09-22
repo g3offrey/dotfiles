@@ -1,15 +1,22 @@
 return {
     {
         "lewis6991/gitsigns.nvim",
-        config = function()
-            local gitsigns = require("gitsigns")
-            local gitsigns_actions = require("gitsigns.actions")
-
-            gitsigns.setup {}
-
-            vim.keymap.set("n", "gk", gitsigns_actions.prev_hunk, {desc = "Previous hunk"})
-            vim.keymap.set("n", "gj", gitsigns_actions.next_hunk, {desc = "Next hunk"})
-        end
+        keys = {
+            {
+                "gk",
+                function()
+                    require("gitsigns.actions").prev_hunk()
+                end,
+                desc = "Previous hunk"
+            },
+            {
+                "gj",
+                function()
+                    require("gitsigns.actions").next_hunk()
+                end,
+                desc = "Next hunk"
+            }
+        }
     },
     {"sindrets/diffview.nvim", dependencies = "nvim-lua/plenary.nvim"},
     "tpope/vim-fugitive"

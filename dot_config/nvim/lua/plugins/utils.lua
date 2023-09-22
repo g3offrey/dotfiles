@@ -3,7 +3,7 @@ return {
     "Asheq/close-buffers.vim",
     "tpope/vim-sleuth",
     "tpope/vim-surround",
-    {"numToStr/Comment.nvim", config = true},
+    {"numToStr/Comment.nvim", opts = {}},
     {
         "folke/flash.nvim",
         event = "VeryLazy",
@@ -34,18 +34,18 @@ return {
     {
         "gbprod/yanky.nvim",
         dependencies = "nvim-telescope/telescope.nvim",
+        keys = {
+            {"p", mode = {"n", "x"}, "<Plug>(YankyPutAfter)", {desc = "Paste after"}},
+            {"P", mode = {"n", "x"}, "<Plug>(YankyPutBefore)", {desc = "Paste before"}},
+            {"<c-n>", "<Plug>(YankyCycleForward)", {desc = "Cycle yank history forward"}},
+            {"<c-p>", "<Plug>(YankyCycleBackward)", {desc = "Cycle yank history backward"}}
+        },
         config = function()
             local yanky = require("yanky")
             local telescope = require("telescope")
 
             yanky.setup {}
             telescope.load_extension("yank_history")
-
-            vim.keymap.set({"n", "x"}, "p", "<Plug>(YankyPutAfter)", {desc = "Paste after"})
-            vim.keymap.set({"n", "x"}, "P", "<Plug>(YankyPutBefore)", {desc = "Paste before"})
-
-            vim.keymap.set("n", "<c-n>", "<Plug>(YankyCycleForward)", {desc = "Cycle yank history forward"})
-            vim.keymap.set("n", "<c-p>", "<Plug>(YankyCycleBackward)", {desc = "Cycle yank history backward"})
         end
     },
     "christoomey/vim-tmux-navigator",
@@ -60,8 +60,14 @@ return {
     },
     {
         "szw/vim-maximizer",
-        config = function()
-            vim.keymap.set("n", "<C-w>m", "<cmd>MaximizerToggle<CR>", {desc = "Maximize current window"})
-        end
+        keys = {
+            {
+                "<C-w>m",
+                "<cmd>MaximizerToggle<CR>",
+                {
+                    desc = "Maximize current window"
+                }
+            }
+        }
     }
 }
