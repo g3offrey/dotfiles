@@ -15,9 +15,7 @@ return {
                 function()
                     require("flash").jump()
                 end,
-                {
-                    desc = "Flash jump"
-                }
+                desc = "Flash jump"
             },
             {
                 "S",
@@ -25,9 +23,7 @@ return {
                 function()
                     require("flash").treesitter()
                 end,
-                {
-                    desc = "Flash treesitter"
-                }
+                desc = "Flash treesitter"
             }
         }
     },
@@ -35,10 +31,10 @@ return {
         "gbprod/yanky.nvim",
         dependencies = "nvim-telescope/telescope.nvim",
         keys = {
-            {"p", mode = {"n", "x"}, "<Plug>(YankyPutAfter)", {desc = "Paste after"}},
-            {"P", mode = {"n", "x"}, "<Plug>(YankyPutBefore)", {desc = "Paste before"}},
-            {"<c-n>", "<Plug>(YankyCycleForward)", {desc = "Cycle yank history forward"}},
-            {"<c-p>", "<Plug>(YankyCycleBackward)", {desc = "Cycle yank history backward"}}
+            {"p", mode = {"n", "x"}, "<Plug>(YankyPutAfter)", desc = "Paste after"},
+            {"P", mode = {"n", "x"}, "<Plug>(YankyPutBefore)", desc = "Paste before"},
+            {"<c-n>", "<Plug>(YankyCycleForward)", desc = "Cycle yank history forward"},
+            {"<c-p>", "<Plug>(YankyCycleBackward)", desc = "Cycle yank history backward"}
         },
         config = function()
             local yanky = require("yanky")
@@ -64,9 +60,7 @@ return {
             {
                 "<C-w>m",
                 "<cmd>MaximizerToggle<CR>",
-                {
-                    desc = "Maximize current window"
-                }
+                desc = "Maximize current window"
             }
         }
     }
