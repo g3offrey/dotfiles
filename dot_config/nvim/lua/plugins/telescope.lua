@@ -119,7 +119,7 @@ return {
             {
                 "<leader><space>",
                 function()
-                    require("telescope.builtin").current_buffer_fuzzy_find()
+                    require("telescope.builtin").current_buffer_fuzzy_find({previewer = false})
                 end,
                 desc = "Fuzzy find"
             },
