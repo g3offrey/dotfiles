@@ -87,28 +87,6 @@ function set_autocmds(client, bufnr)
             }
         )
     end
-
-    if client.supports_method("textDocument/formatting") then
-        vim.api.nvim_create_autocmd(
-            "BufWritePre",
-            {
-                group = augroup,
-                buffer = bufnr,
-                callback = function()
-                    vim.lsp.buf.format({bufnr = bufnr})
-                end
-            }
-        )
-    else
-        vim.api.nvim_create_autocmd(
-            "BufWritePost",
-            {
-                group = augroup,
-                buffer = bufnr,
-                command = "silent! FormatWrite"
-            }
-        )
-    end
 end
 
 return {
@@ -117,8 +95,7 @@ return {
         dependencies = {
             "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
-            "hrsh7th/cmp-nvim-lsp",
-            "mhartington/formatter.nvim"
+            "hrsh7th/cmp-nvim-lsp"
         },
         config = function()
             local mason = require("mason")
@@ -222,26 +199,40 @@ return {
         build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
     },
     {
-        "mhartington/formatter.nvim",
+        "nvimtools/none-ls.nvim",
         opts = function()
+            local null_ls = require("null-ls")
+
             return {
-                filetype = {
-                    lua = {
-                        require("formatter.filetypes.lua").stylua
+                sources = {
+                    null_ls.builtins.formatting.prettier.with {
+                        extra_filetypes = {"svelte", "astro"},
+                        condition = function(utils)
+                            return utils.has_file {"package.json"}
+                        end
                     },
-                    typescript = {
-                        require("formatter.filetypes.typescript").prettier
-                    },
-                    typescriptreact = {
-                        require("formatter.filetypes.typescriptreact").prettier
-                    },
-                    javascript = {
-                        require("formatter.filetypes.javascript").prettier
-                    },
-                    javascriptreact = {
-                        require("formatter.filetypes.javascriptreact").prettier
+                    null_ls.builtins.formatting.gofmt,
+                    null_ls.builtins.formatting.rustfmt,
+                    null_ls.builtins.formatting.deno_fmt.with {
+                        condition = function(utils)
+                            return utils.has_file {"deno.json", "deno.jsonc"}
+                        end
                     }
-                }
+                },
+                on_attach = function(client, bufnr)
+                    if client.supports_method("textDocument/formatting") then
+                        vim.api.nvim_create_autocmd(
+                            "BufWritePre",
+                            {
+                                group = augroup,
+                                buffer = bufnr,
+                                callback = function()
+                                    vim.lsp.buf.format({async = false})
+                                end
+                            }
+                        )
+                    end
+                end
             }
         end
     }
