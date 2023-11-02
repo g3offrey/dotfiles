@@ -93,6 +93,7 @@ return {
     {
         "neovim/nvim-lspconfig",
         dependencies = {
+            "folke/neodev.nvim",
             "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
             "hrsh7th/cmp-nvim-lsp"
@@ -104,6 +105,9 @@ return {
             mason_lsp.setup {
                 ensure_installed = servers
             }
+
+            local neodev = require("neodev")
+            neodev.setup {}
 
             local lspconfig = require("lspconfig")
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -184,7 +188,6 @@ return {
             )
         end
     },
-    {"folke/neodev.nvim", dependencies = "neovim/nvim-lspconfig", opts = {}},
     {"j-hui/fidget.nvim", dependencies = "neovim/nvim-lspconfig", opts = {}, tag = "legacy"},
     {
         "ray-x/go.nvim",
