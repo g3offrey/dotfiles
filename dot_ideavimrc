@@ -1,0 +1,10 @@
+let mapleader=" "
+
+" plugins
+set surround
+set commentary
+
+set incsearch
+set rnu
+
+imap jj <Esc>
